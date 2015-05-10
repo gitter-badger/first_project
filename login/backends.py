@@ -1,7 +1,4 @@
-__author__ = 'Tomek'
-
 from django.contrib.auth.models import User, check_password
-
 
 class AuthenticationBackend(object):
     def authenticate(self, email=None, password=None):
@@ -15,6 +12,6 @@ class AuthenticationBackend(object):
 
     def get_user(self, user_id):
         try:
-            return User.object.get(pk=user_id)
+            return User.objects.get(pk=user_id)
         except User.DoesNotExist:
             return None

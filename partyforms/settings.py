@@ -57,7 +57,7 @@ ROOT_URLCONF = 'partyforms.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,8 +111,10 @@ STATICFILES_DIRS = (
 )
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'templates'),
+    os.path.join(BASE_DIR, 'templates'),
     os.path.join(SITE_ROOT, 'templates'),
 )
 
-AUTHENTICATION_BACKENDS = ('login.backends.AuthenticationBackend', )
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',
+                           'login.backends.AuthenticationBackend',
+                           )
