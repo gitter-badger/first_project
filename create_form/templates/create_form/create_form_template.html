@@ -5,36 +5,186 @@
 {% endblock %}
 
 {% block mainblock %}
-    <h3>On this site you can create your form.</h3>
-    <h1>Your new event:</h1>
-    Event title: <input type="text" name="title"></BR>
-    <h4>Required informations:</h4>
-	    Category: <input list="category" name="category" value="Sport">
-			<datalist id="category">
-				<option value="Sport">
-				<option value="2">
-				<option value="3">
-				<option value="4">
-				<option value="5">
-			</datalist></BR>
-		Event registration status: <input type="radio" name="on" value="on" checked>open   <input type="radio" name="off" value="off">close </BR>
-	    Max participants: <input type="number" name="max_patricipants" min="0" max="999" value="0"></BR>
-	    Price: <input type="number" name="price" min="0" max="9999" value="0"></BR>
-	    Location: <input type="text" name="location"></BR>
-	    From: <input type="date" name="from"><input type="time" name="from_time"></BR>
-	    To: <input type="date" name="to"><input type="time" name="to_time"></BR>
-	    Description:</BR>
-	    <input type="text" name="desctiption" style="width:240px; height:60px;"></BR>
+<p class="text-center">
+	Create form for your event
+</p>
+</BR>
 
-	<h4>Additional informations:</h4>
-	    <input type="checkbox" name="f_n" value="yes" checked> File: <input type="file" name="file"></BR>
-	    <input type="submit" value="Next file"></BR>
+<form role="form">
+	<div class="form-group">
+		<label for="inputEventTitle">Event title</label>
+		<input type="eventTitle" class="form-control" id="inputEventTitle">
+	</div>
+	<div class="form-group">
+		<label for="inputCategory">Category</label>
+		<select class="form-control">
+			<option>Mountains</option>
+			<option>Tourist</option>
+			<option>Tent</option>
+			<option>Bike</option>
+			<option>Sport</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="inputStatus">Event registration status</label>
+		<div class="radio">
+			<label>
+				<input type="radio" name="optionsRadios" id="optionsRadios1" value="open" checked>
+				Open
+			</label>
+		</div>
+		<div class="radio">
+			<label>
+				<input type="radio" name="optionsRadios" id="optionsRadios2" value="close">
+				Close
+			</label>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputMaxPatricipants">Max participants</label>
+		<input type="number" class="form-control" id="inputMaxParticipants" placeholder="Type the maximum number of participants" min="1">
+	</div>
+	<div class="form-group">
+		<label for="inputPrice">Price</label>
+		<input type="number" class="form-control" id="inputPrice" placeholder="Enter price" min="0">
+	</div>
+	<div class="form-group">
+		<label for="inputLocation">Location</label>
+		<input type="eventTitle" class="form-control" id="inputLocation" placeholder="Enter the name of the location">
+	</div>
+	<div class="form-group">
+		<label for="inputFrom">From</label>
+		<input type="date" class="form-control" id="inputFrom">
+		<input type="time" class="form-control" id="inputFromTime">
+	</div>
+	<div class="form-group">
+		<label for="inputTo">To</label>
+		<input type="date" class="form-control" id="inputTo">
+		<input type="time" class="form-control" id="inputToTime">
+	</div>
+	<div class="form-group">
+		<label for="inputDescription">Description</label>
+		<textarea class="form-control" id="inputDescription" rows="3" placeholder="Enter event description"></textarea>
+	</div>
+	<div class="form-group">
+		<label for="iInputFile">Files</label>
+		<input type="file" id="inputFile">
+	</div>
 
-	<h4><input type="checkbox" name="g_n" value="yes" checked>Gifts:</h4>
-	    Gift name: <input type="text" name="giftname"></BR>
-	    <input type="checkbox" name="a" value="yes" checked> Amount: <input type="number" name="amount" min="1" max="9999" value="100"></BR>
-		<input type="submit" value="Next gift"></BR>
+	</BR>
+	<div class="wrapper" id="giftHidden" style="display:none;">
+		<div class="form-group">
+			<label for="inputGift">Gift</label>
+			<input type="gift" class="form-control" id="inputGift" placeholder="Enter the name of the gift">
+		</div>
+		<div class="form-group">
+			<label for="inputAmount">Amount</label>
+			<input type="number" class="form-control" id="inputAmount" placeholder="Enter amount" min="0">
+		</div>
+	</div>
 
+	<button type="button" class="btn btn-primary btn-block" onclick="hiddenDiv = document.getElementById('giftHidden'); if (hiddenDiv.style.display == 'none') hiddenDiv.style.display = 'block'; else hiddenDiv.style.display = 'none'; ">Gifts fields</button>
+	</BR>
+
+	<div class="wrapper" id="smallEventsHidden" style="display:none;">
+		<div class="form-group">
+			<label for="inputSmallEventName">Small event name</label>
+			<input type="gift" class="form-control" id="inputSmallEventName" placeholder="Enter the name of the small event">
+		</div>
+		<div class="form-group">
+			<label for="inputSmallEventFrom">From</label>
+			<input type="date" class="form-control" id="inputSmallEventFrom">
+			<input type="time" class="form-control" id="inputSmallEventFromTime">
+		</div>
+		<div class="form-group">
+			<label for="inputSmallEventTo">To</label>
+			<input type="date" class="form-control" id="inputSmallEventTo">
+			<input type="time" class="form-control" id="inputSmallEventToTime">
+		</div>
+	</div>
+
+	<button type="button" class="btn btn-primary btn-block" onclick="hiddenDiv = document.getElementById('smallEventsHidden'); if (hiddenDiv.style.display == 'none') hiddenDiv.style.display = 'block'; else hiddenDiv.style.display = 'none'; ">Small events fields</button>
+	</BR>
+
+
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Gifts fields
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+		<div class="form-group">
+			<label for="inputGift">Gift</label>
+			<input type="gift" class="form-control" id="inputGift" placeholder="Enter the name of the gift">
+		</div>
+		<div class="form-group">
+			<label for="inputAmount">Amount</label>
+			<input type="number" class="form-control" id="inputAmount" placeholder="Enter amount" min="0">
+		</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Small events fields
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+		<div class="form-group">
+			<label for="inputSmallEventName">Small event name</label>
+			<input type="gift" class="form-control" id="inputSmallEventName" placeholder="Enter the name of the small event">
+		</div>
+		<div class="form-group">
+			<label for="inputSmallEventFrom">From</label>
+			<input type="date" class="form-control" id="inputSmallEventFrom">
+			<input type="time" class="form-control" id="inputSmallEventFromTime">
+		</div>
+		<div class="form-group">
+			<label for="inputSmallEventTo">To</label>
+			<input type="date" class="form-control" id="inputSmallEventTo">
+			<input type="time" class="form-control" id="inputSmallEventToTime">
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	<div class="checkbox">
+		<label>
+			<input type="checkbox">I agree to the processing of ...
+		</label>
+	</div>
+	<button type="submit" class="btn btn-primary btn-lg btn-block" onclick="">Create form</button>
+	</BR>
+
+	<div class="alert alert-success alert-dismissable">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		Form was created. Thank you!
+	</div>
+	<div class="alert alert-warning alert-dismissable">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		Some fields are empty.
+	</div>
+	<div class="alert alert-danger alert-dismissable">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		Check the required fields!
+	</div>
+
+</form>
+
+<!--
     <h4><input type="checkbox" name="s_e_s" value="yes" checked> Small events schedule:</h4>
 	    Event name: <input type="text" name="event_name"></BR>
 	    From: <input type="date" name="event_from"><input type="time" name="event_from_time"></BR>
@@ -44,6 +194,8 @@
 	    <input type="submit" value="Next small event"></BR>
 
 	<h3>Create form! <input type="submit" value="Submit"></h3>
+
+-->
 	
 
 {% endblock %}
