@@ -13,7 +13,7 @@
 <form role="form">
 	<div class="form-group">
 		<label for="inputEventTitle">Event title</label>
-		<input type="eventTitle" class="form-control" id="inputEventTitle">
+		<input type="eventTitle" class="form-control" id="inputEventTitle" placeholder="Enter event title">
 	</div>
 	<div class="form-group">
 		<label for="inputCategory">Category</label>
@@ -66,101 +66,790 @@
 		<label for="inputDescription">Description</label>
 		<textarea class="form-control" id="inputDescription" rows="3" placeholder="Enter event description"></textarea>
 	</div>
-	<div class="form-group">
-		<label for="iInputFile">Files</label>
-		<input type="file" id="inputFile">
+
+	</BR>
+	<button type="button" id="fButton" class="btn btn-success btn-block" onclick="button_1(); ">Show files fields</button>
+	</BR>
+
+	<div class="jumbotron" id="fileHidden" style="display:none; background: #D8D8D8">
+		<div id="files" class="form-group">
+			<label for="inputFile">Files</label>
+			</BR>
+			<input type="file" id="inputFile1" class="upload">
+		</div>
+		<button type="button" id="addButton" class="btn btn-default btn-block" onclick="add_element('files'); ">Add next (max 10)</button>
+		<button type="button" id="removeButton" class="btn btn-default btn-block" onclick="remove_element('files'); " style="display: none; ">Remove last</button>
+	</div>
+
+	<button type="button" id="gButton" class="btn btn-success btn-block" onclick="button_2(); ">Show gifts fields</button>
+	</BR>
+
+	<div class="jumbotron" id="giftHidden" style="display:none; background: #D8D8D8">
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOneG">
+							Gift 01
+						</a>
+					</h4>
+				</div>
+				<div id="collapseOneG" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputGift01">Gift</label>
+							<input type="gift" class="form-control" id="inputGift01" placeholder="Enter the name of the gift">
+						</div>
+						<div class="form-group">
+							<label for="inputAmount01">Amount</label>
+							<input type="number" class="form-control" id="inputAmount01" placeholder="Enter amount" min="0">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="gift2" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwoG">
+							Gift 02
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTwoG" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputGift02">Gift</label>
+							<input type="gift" class="form-control" id="inputGift02" placeholder="Enter the name of the gift">
+						</div>
+						<div class="form-group">
+							<label for="inputAmount02">Amount</label>
+							<input type="number" class="form-control" id="inputAmount02" placeholder="Enter amount" min="0">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="gift3" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseThreeG">
+							Gift 03
+						</a>
+					</h4>
+				</div>
+				<div id="collapseThreeG" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputGift03">Gift</label>
+							<input type="gift" class="form-control" id="inputGift03" placeholder="Enter the name of the gift">
+						</div>
+						<div class="form-group">
+							<label for="inputAmount03">Amount</label>
+							<input type="number" class="form-control" id="inputAmount03" placeholder="Enter amount" min="0">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="gift4" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseFourG">
+							Gift 04
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFourG" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputGift04">Gift</label>
+							<input type="gift" class="form-control" id="inputGift04" placeholder="Enter the name of the gift">
+						</div>
+						<div class="form-group">
+							<label for="inputAmount04">Amount</label>
+							<input type="number" class="form-control" id="inputAmount04" placeholder="Enter amount" min="0">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="gift5" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseFiveG">
+							Gift 05
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFiveG" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputGift05">Gift</label>
+							<input type="gift" class="form-control" id="inputGift05" placeholder="Enter the name of the gift">
+						</div>
+						<div class="form-group">
+							<label for="inputAmount05">Amount</label>
+							<input type="number" class="form-control" id="inputAmount05" placeholder="Enter amount" min="0">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="gift6" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseSixG">
+							Gift 06
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSixG" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputGift06">Gift</label>
+							<input type="gift" class="form-control" id="inputGift06" placeholder="Enter the name of the gift">
+						</div>
+						<div class="form-group">
+							<label for="inputAmount06">Amount</label>
+							<input type="number" class="form-control" id="inputAmount06" placeholder="Enter amount" min="0">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="gift7" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseSevenG">
+							Gift 07
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSevenG" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputGift07">Gift</label>
+							<input type="gift" class="form-control" id="inputGift07" placeholder="Enter the name of the gift">
+						</div>
+						<div class="form-group">
+							<label for="inputAmount07">Amount</label>
+							<input type="number" class="form-control" id="inputAmount07" placeholder="Enter amount" min="0">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="gift8" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseEightG">
+							Gift 08
+						</a>
+					</h4>
+				</div>
+				<div id="collapseEightG" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputGift08">Gift</label>
+							<input type="gift" class="form-control" id="inputGift08" placeholder="Enter the name of the gift">
+						</div>
+						<div class="form-group">
+							<label for="inputAmount08">Amount</label>
+							<input type="number" class="form-control" id="inputAmount08" placeholder="Enter amount" min="0">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="gift9" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseNineG">
+							Gift 09
+						</a>
+					</h4>
+				</div>
+				<div id="collapseNineG" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputGift09">Gift</label>
+							<input type="gift" class="form-control" id="inputGift09" placeholder="Enter the name of the gift">
+						</div>
+						<div class="form-group">
+							<label for="inputAmount09">Amount</label>
+							<input type="number" class="form-control" id="inputAmount09" placeholder="Enter amount" min="0">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="gift10" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTenG">
+							Gift 10
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTenG" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputGift10">Gift</label>
+							<input type="gift" class="form-control" id="inputGift10" placeholder="Enter the name of the gift">
+						</div>
+						<div class="form-group">
+							<label for="inputAmount10">Amount</label>
+							<input type="number" class="form-control" id="inputAmount10" placeholder="Enter amount" min="0">
+						</div>
+					</div>
+				</div>
+			</div>
+			</BR>
+			<button type="button" id="showButtonG" class="btn btn-default btn-block" onclick="show_element_2('showButtonG','hideButtonG','gift'); ">Add next (max 10)</button>
+			<button type="button" id="hideButtonG" class="btn btn-default btn-block" onclick="hide_element_2('hideButtonG','showButtonG','gift'); " style="display: none; ">Remove last</button>
+		</div>
+	</div>
+
+	<button type="button" id="seButton" class="btn btn-success btn-block" onclick="button_3(); ">Show small events fields</button>
+	</BR>
+
+	<div class="jumbotron" id="smallEventsHidden" style="display:none; background: #D8D8D8">
+		<div class="panel-group" id="accordion2">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion2" href="#collapseOneS">
+							Small Event 01
+						</a>
+					</h4>
+				</div>
+				<div id="collapseOneS" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputSmallEventName01">Small event name</label>
+							<input type="smallEvent" class="form-control" id="inputSmallEventName01" placeholder="Enter the name of the small event">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventFrom01">From</label>
+							<input type="date" class="form-control" id="inputSmallEventFrom01">
+							<input type="time" class="form-control" id="inputSmallEventFromTime01">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventTo01">To</label>
+							<input type="date" class="form-control" id="inputSmallEventTo01">
+							<input type="time" class="form-control" id="inputSmallEventToTime01">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="small2" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwoS">
+							Small Event 02
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTwoS" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputSmallEventName02">Small event name</label>
+							<input type="smallEvent" class="form-control" id="inputSmallEventName02" placeholder="Enter the name of the small event">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventFrom02">From</label>
+							<input type="date" class="form-control" id="inputSmallEventFrom02">
+							<input type="time" class="form-control" id="inputSmallEventFromTime02">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventTo02">To</label>
+							<input type="date" class="form-control" id="inputSmallEventTo02">
+							<input type="time" class="form-control" id="inputSmallEventToTime02">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="small3" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion2" href="#collapseThreeS">
+							Small Event 03
+						</a>
+					</h4>
+				</div>
+				<div id="collapseThreeS" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputSmallEventName03">Small event name</label>
+							<input type="smallEvent" class="form-control" id="inputSmallEventName03" placeholder="Enter the name of the small event">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventFrom03">From</label>
+							<input type="date" class="form-control" id="inputSmallEventFrom03">
+							<input type="time" class="form-control" id="inputSmallEventFromTime03">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventTo03">To</label>
+							<input type="date" class="form-control" id="inputSmallEventTo03">
+							<input type="time" class="form-control" id="inputSmallEventToTime03">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="small4" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion2" href="#collapseFourS">
+							Small Event 04
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFourS" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputSmallEventName04">Small event name</label>
+							<input type="smallEvent" class="form-control" id="inputSmallEventName04" placeholder="Enter the name of the small event">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventFrom04">From</label>
+							<input type="date" class="form-control" id="inputSmallEventFrom04">
+							<input type="time" class="form-control" id="inputSmallEventFromTime04">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventTo04">To</label>
+							<input type="date" class="form-control" id="inputSmallEventTo04">
+							<input type="time" class="form-control" id="inputSmallEventToTime04">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="small5" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion2" href="#collapseFiveS">
+							Small Event 05
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFiveS" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputSmallEventName05">Small event name</label>
+							<input type="smallEvent" class="form-control" id="inputSmallEventName05" placeholder="Enter the name of the small event">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventFrom05">From</label>
+							<input type="date" class="form-control" id="inputSmallEventFrom05">
+							<input type="time" class="form-control" id="inputSmallEventFromTime05">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventTo05">To</label>
+							<input type="date" class="form-control" id="inputSmallEventTo05">
+							<input type="time" class="form-control" id="inputSmallEventToTime05">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="small6" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion2" href="#collapseSixS">
+							Small Event 06
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSixS" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputSmallEventName06">Small event name</label>
+							<input type="smallEvent" class="form-control" id="inputSmallEventName06" placeholder="Enter the name of the small event">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventFrom06">From</label>
+							<input type="date" class="form-control" id="inputSmallEventFrom06">
+							<input type="time" class="form-control" id="inputSmallEventFromTime06">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventTo06">To</label>
+							<input type="date" class="form-control" id="inputSmallEventTo06">
+							<input type="time" class="form-control" id="inputSmallEventToTime06">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="small7" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion2" href="#collapseSevenS">
+							Small Event 07
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSevenS" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputSmallEventName07">Small event name</label>
+							<input type="smallEvent" class="form-control" id="inputSmallEventName07" placeholder="Enter the name of the small event">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventFrom07">From</label>
+							<input type="date" class="form-control" id="inputSmallEventFrom07">
+							<input type="time" class="form-control" id="inputSmallEventFromTime07">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventTo07">To</label>
+							<input type="date" class="form-control" id="inputSmallEventTo07">
+							<input type="time" class="form-control" id="inputSmallEventToTime07">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="small8" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion2" href="#collapseEightS">
+							Small Event 08
+						</a>
+					</h4>
+				</div>
+				<div id="collapseEightS" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputSmallEventName08">Small event name</label>
+							<input type="smallEvent" class="form-control" id="inputSmallEventName08" placeholder="Enter the name of the small event">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventFrom08">From</label>
+							<input type="date" class="form-control" id="inputSmallEventFrom08">
+							<input type="time" class="form-control" id="inputSmallEventFromTime08">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventTo08">To</label>
+							<input type="date" class="form-control" id="inputSmallEventTo08">
+							<input type="time" class="form-control" id="inputSmallEventToTime08">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="small9" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion2" href="#collapseNineS">
+							Small Event 09
+						</a>
+					</h4>
+				</div>
+				<div id="collapseNineS" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputSmallEventName09">Small event name</label>
+							<input type="smallEvent" class="form-control" id="inputSmallEventName09" placeholder="Enter the name of the small event">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventFrom09">From</label>
+							<input type="date" class="form-control" id="inputSmallEventFrom09">
+							<input type="time" class="form-control" id="inputSmallEventFromTime09">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventTo09">To</label>
+							<input type="date" class="form-control" id="inputSmallEventTo09">
+							<input type="time" class="form-control" id="inputSmallEventToTime09">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="small10" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion2" href="#collapseTenS">
+							Small Event 10
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTenS" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputSmallEventName10">Small event name</label>
+							<input type="smallEvent" class="form-control" id="inputSmallEventName10" placeholder="Enter the name of the small event">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventFrom10">From</label>
+							<input type="date" class="form-control" id="inputSmallEventFrom10">
+							<input type="time" class="form-control" id="inputSmallEventFromTime10">
+						</div>
+						<div class="form-group">
+							<label for="inputSmallEventTo10">To</label>
+							<input type="date" class="form-control" id="inputSmallEventTo10">
+							<input type="time" class="form-control" id="inputSmallEventToTime10">
+						</div>
+					</div>
+				</div>
+			</div>
+			</BR>
+			<button type="button" id="showButtonE" class="btn btn-default btn-block" onclick="show_element_3('showButtonE','hideButtonE','small'); ">Add next (max 10)</button>
+			<button type="button" id="hideButtonE" class="btn btn-default btn-block" onclick="hide_element_3('hideButtonE','showButtonE','small'); " style="display: none; ">Remove last</button>
+		</div>
+	</div>
+
+	<button type="button" id="addButton" class="btn btn-success btn-block" onclick="button_4(); ">Show panel of adding your own fields</button>
+	</BR>
+
+	<div class="jumbotron" id="addOwnFieldsHidden" style="display:none; background: #D8D8D8">
+
+		<div class="panel-group" id="accordion3">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion3" href="#collapseOne">
+							Your own field 01
+						</a>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="inputAdd01Title">Title of new field</label>
+								<input type="add01Title" class="form-control" id="inputAdd01Title" placeholder="Enter the name of the field">
+							</div>
+							<div class="form-group">
+								<label for="inputAdd01Description">Description of new field</label>
+								<input type="add01Description" class="form-control" id="inputAdd01Description" placeholder="Enter the description of the field">
+							</div>
+							<div class="form-group">
+								<label for="inputAdd01Type">Type of new field</label>
+								<input type="add01Type" class="form-control" id="inputAdd01Type" placeholder="Enter the Type of the field">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="add2" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion3" href="#collapseTwo">
+						Your own field 02
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="inputAdd02Title">Title of new field</label>
+								<input type="add02Title" class="form-control" id="inputAdd02Title" placeholder="Enter the name of the field">
+							</div>
+							<div class="form-group">
+								<label for="inputAdd02Description">Description of new field</label>
+								<input type="add02Description" class="form-control" id="inputAdd02Description" placeholder="Enter the description of the field">
+							</div>
+							<div class="form-group">
+								<label for="inputAdd02Type">Type of new field</label>
+								<input type="add02Type" class="form-control" id="inputAdd02Type" placeholder="Enter the Type of the field">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="add3" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion3" href="#collapseThree">
+						Your own field 03
+						</a>
+					</h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputAdd03Title">Title of new field</label>
+							<input type="add03Title" class="form-control" id="inputAdd03Title" placeholder="Enter the name of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd03Description">Description of new field</label>
+							<input type="add03Description" class="form-control" id="inputAdd03Description" placeholder="Enter the description of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd03Type">Type of new field</label>
+							<input type="add03Type" class="form-control" id="inputAdd03Type" placeholder="Enter the Type of the field">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="add4" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion3" href="#collapseFour">
+						Your own field 04
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputAdd04Title">Title of new field</label>
+							<input type="add04Title" class="form-control" id="inputAdd04Title" placeholder="Enter the name of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd04Description">Description of new field</label>
+							<input type="add04Description" class="form-control" id="inputAdd04Description" placeholder="Enter the description of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd04Type">Type of new field</label>
+							<input type="add04Type" class="form-control" id="inputAdd04Type" placeholder="Enter the Type of the field">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="add5" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion3" href="#collapseFive">
+						Your own field 05
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFive" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputAdd05Title">Title of new field</label>
+							<input type="add05Title" class="form-control" id="inputAdd05Title" placeholder="Enter the name of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd05Description">Description of new field</label>
+							<input type="add05Description" class="form-control" id="inputAdd05Description" placeholder="Enter the description of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd05Type">Type of new field</label>
+							<input type="add05Type" class="form-control" id="inputAdd05Type" placeholder="Enter the Type of the field">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="add6" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion3" href="#collapseSix">
+						Your own field 06
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSix" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputAdd06Title">Title of new field</label>
+							<input type="add06Title" class="form-control" id="inputAdd06Title" placeholder="Enter the name of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd06Description">Description of new field</label>
+							<input type="add06Description" class="form-control" id="inputAdd06Description" placeholder="Enter the description of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd06Type">Type of new field</label>
+							<input type="add06Type" class="form-control" id="inputAdd06Type" placeholder="Enter the Type of the field">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="add7" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion3" href="#collapseSeven">
+						Your own field 07
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSeven" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputAdd07Title">Title of new field</label>
+							<input type="add07Title" class="form-control" id="inputAdd07Title" placeholder="Enter the name of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd07Description">Description of new field</label>
+							<input type="add07Description" class="form-control" id="inputAdd07Description" placeholder="Enter the description of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd07Type">Type of new field</label>
+							<input type="add07Type" class="form-control" id="inputAdd07Type" placeholder="Enter the Type of the field">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="add8" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion3" href="#collapseEight">
+						Your own field 08
+						</a>
+					</h4>
+				</div>
+				<div id="collapseEight" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputAdd08Title">Title of new field</label>
+							<input type="add08Title" class="form-control" id="inputAdd08Title" placeholder="Enter the name of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd08Description">Description of new field</label>
+							<input type="add08Description" class="form-control" id="inputAdd08Description" placeholder="Enter the description of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd08Type">Type of new field</label>
+							<input type="add08Type" class="form-control" id="inputAdd08Type" placeholder="Enter the Type of the field">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="add9" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion3" href="#collapseNine">
+						Your own field 09
+						</a>
+					</h4>
+				</div>
+				<div id="collapseNine" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputAdd09Title">Title of new field</label>
+							<input type="add09Title" class="form-control" id="inputAdd09Title" placeholder="Enter the name of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd09Description">Description of new field</label>
+							<input type="add09Description" class="form-control" id="inputAdd09Description" placeholder="Enter the description of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd09Type">Type of new field</label>
+							<input type="add09Type" class="form-control" id="inputAdd09Type" placeholder="Enter the Type of the field">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="add10" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion3" href="#collapseTen">
+						Your own field 10
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTen" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="inputAdd10Title">Title of new field</label>
+							<input type="add10Title" class="form-control" id="inputAdd10Title" placeholder="Enter the name of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd10Description">Description of new field</label>
+							<input type="add10Description" class="form-control" id="inputAdd10Description" placeholder="Enter the description of the field">
+						</div>
+						<div class="form-group">
+							<label for="inputAdd10Type">Type of new field</label>
+							<input type="add10Type" class="form-control" id="inputAdd10Type" placeholder="Enter the Type of the field">
+						</div>
+					</div>
+				</div>
+			</div>
+			</BR>
+			<button type="button" id="showButton" class="btn btn-default btn-block" onclick="show_element_4('showButton','hideButton','add'); ">Add next (max 10)</button>
+			<button type="button" id="hideButton" class="btn btn-default btn-block" onclick="hide_element_4('hideButton','showButton','add'); " style="display: none; ">Remove last</button>
+		</div>
 	</div>
 
 	</BR>
-	<div class="wrapper" id="giftHidden" style="display:none;">
-		<div class="form-group">
-			<label for="inputGift">Gift</label>
-			<input type="gift" class="form-control" id="inputGift" placeholder="Enter the name of the gift">
-		</div>
-		<div class="form-group">
-			<label for="inputAmount">Amount</label>
-			<input type="number" class="form-control" id="inputAmount" placeholder="Enter amount" min="0">
-		</div>
-	</div>
-
-	<button type="button" class="btn btn-primary btn-block" onclick="hiddenDiv = document.getElementById('giftHidden'); if (hiddenDiv.style.display == 'none') hiddenDiv.style.display = 'block'; else hiddenDiv.style.display = 'none'; ">Gifts fields</button>
-	</BR>
-
-	<div class="wrapper" id="smallEventsHidden" style="display:none;">
-		<div class="form-group">
-			<label for="inputSmallEventName">Small event name</label>
-			<input type="gift" class="form-control" id="inputSmallEventName" placeholder="Enter the name of the small event">
-		</div>
-		<div class="form-group">
-			<label for="inputSmallEventFrom">From</label>
-			<input type="date" class="form-control" id="inputSmallEventFrom">
-			<input type="time" class="form-control" id="inputSmallEventFromTime">
-		</div>
-		<div class="form-group">
-			<label for="inputSmallEventTo">To</label>
-			<input type="date" class="form-control" id="inputSmallEventTo">
-			<input type="time" class="form-control" id="inputSmallEventToTime">
-		</div>
-	</div>
-
-	<button type="button" class="btn btn-primary btn-block" onclick="hiddenDiv = document.getElementById('smallEventsHidden'); if (hiddenDiv.style.display == 'none') hiddenDiv.style.display = 'block'; else hiddenDiv.style.display = 'none'; ">Small events fields</button>
-	</BR>
-
-
-
-<div class="panel-group" id="accordion">
-  <div class="panel panel-success">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Gifts fields
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse">
-      <div class="panel-body">
-		<div class="form-group">
-			<label for="inputGift">Gift</label>
-			<input type="gift" class="form-control" id="inputGift" placeholder="Enter the name of the gift">
-		</div>
-		<div class="form-group">
-			<label for="inputAmount">Amount</label>
-			<input type="number" class="form-control" id="inputAmount" placeholder="Enter amount" min="0">
-		</div>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-info">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-          Small events fields
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
-      <div class="panel-body">
-		<div class="form-group">
-			<label for="inputSmallEventName">Small event name</label>
-			<input type="gift" class="form-control" id="inputSmallEventName" placeholder="Enter the name of the small event">
-		</div>
-		<div class="form-group">
-			<label for="inputSmallEventFrom">From</label>
-			<input type="date" class="form-control" id="inputSmallEventFrom">
-			<input type="time" class="form-control" id="inputSmallEventFromTime">
-		</div>
-		<div class="form-group">
-			<label for="inputSmallEventTo">To</label>
-			<input type="date" class="form-control" id="inputSmallEventTo">
-			<input type="time" class="form-control" id="inputSmallEventToTime">
-		</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
 	<div class="checkbox">
 		<label>
 			<input type="checkbox">I agree to the processing of ...
@@ -184,18 +873,159 @@
 
 </form>
 
-<!--
-    <h4><input type="checkbox" name="s_e_s" value="yes" checked> Small events schedule:</h4>
-	    Event name: <input type="text" name="event_name"></BR>
-	    From: <input type="date" name="event_from"><input type="time" name="event_from_time"></BR>
-	    To: <input type="date" name="event_to"><input type="time" name="event_to_time"></BR>
-	    <input type="checkbox" name="d" value="yes" checked> Description:</BR>
-	    <input type="text" name="desctiption" style="width:240px; height:60px;"></BR>
-	    <input type="submit" value="Next small event"></BR>
+<!--<script type="text/javascript" src="js/create_form.js"></script>-->
+<script type="text/javascript">
+	<!--
+	// files
+	function button_1() {
+		hiddenDiv = document.getElementById('fileHidden'); 
+		fButton = document.getElementById('fButton'); 
+		if (hiddenDiv.style.display == 'none') {
+			hiddenDiv.style.display = 'block'; 
+			fButton.firstChild.data = 'Hide files fields'; 
+		} 
+		else { 
+			hiddenDiv.style.display = 'none'; 
+			fButton.firstChild.data = 'Show files fields'; 
+		} 
+	}
+	var l = 1;
+	function add_element(container){
+		l = l + 1;
+		var znacznik = document.createElement('input');
+		znacznik.setAttribute('type', 'file');
+		znacznik.setAttribute('name', 'file');
+		znacznik.setAttribute('id', 'inputFile' + l);
+		znacznik.className = 'upload';
+		var container = document.getElementById(container);
+		container.appendChild(znacznik);
+		document.getElementById('removeButton').style.display = 'block';
+		if(l==10) {
+			document.getElementById('addButton').style.display = 'none';
+			return;
+		}
+	}
+	function remove_element(container){
+		document.getElementById('addButton').style.display = 'block';
+		var container = document.getElementById(container);
+		var child = document.getElementById('inputFile' + l);
+		container.removeChild(child);
+		if(l==2) {
+			document.getElementById('removeButton').style.display = 'none';
+			l = l - 1;
+			return;
+		}
+		l = l - 1;
+	}
 
-	<h3>Create form! <input type="submit" value="Submit"></h3>
+	// gifts
+	function button_2() {
+		hiddenDiv = document.getElementById('giftHidden'); 
+		gButton = document.getElementById('gButton'); 
+		if (hiddenDiv.style.display == 'none') { 
+			hiddenDiv.style.display = 'block'; 
+			gButton.firstChild.data = 'Hide gifts fields'; 
+		} 
+		else { 
+			hiddenDiv.style.display = 'none'; 
+			gButton.firstChild.data = 'Show gifts fields';
+		} 
+	}
+	var i = 1;
+	function show_element_2(container,hider,name){
+		i = i + 1;
+		document.getElementById(hider).style.display = 'block';
+		element = document.getElementById('' + name + i);
+		element.style.display = 'block';
+		if(i==10) {
+			document.getElementById(container).style.display = 'none';
+			return;
+		}
+	}
+	function hide_element_2(container,shower,name){
+		document.getElementById(shower).style.display = 'block';
+		element = document.getElementById('' + name + i);
+		element.style.display = 'none';
+		if(i==2) {
+			document.getElementById(container).style.display = 'none';
+			i = i - 1;
+			return;
+		}
+		i = i - 1;
+	}
 
--->
-	
+	// small events
+	function button_3() {
+		hiddenDiv = document.getElementById('smallEventsHidden'); 
+		seButton = document.getElementById('seButton'); 
+		if (hiddenDiv.style.display == 'none') { 
+			hiddenDiv.style.display = 'block'; 
+			seButton.firstChild.data = 'Hide small events fields'; 
+		} 
+		else { 
+			hiddenDiv.style.display = 'none'; 
+			seButton.firstChild.data = 'Show small events fields'; 
+		} 
+	}
+	var j = 1;
+	function show_element_3(container,hider,name){
+		j = j + 1;
+		document.getElementById(hider).style.display = 'block';
+		element = document.getElementById('' + name + j);
+		element.style.display = 'block';
+		if(j==10) {
+			document.getElementById(container).style.display = 'none';
+			return;
+		}
+	}
+	function hide_element_3(container,shower,name){
+		document.getElementById(shower).style.display = 'block';
+		element = document.getElementById('' + name + j);
+		element.style.display = 'none';
+		if(j==2) {
+			document.getElementById(container).style.display = 'none';
+			j = j - 1;
+			return;
+		}
+		j = j - 1;
+	}
+
+	// own fields
+	function button_4() {
+		hiddenDiv = document.getElementById('addOwnFieldsHidden'); 
+		addButton = document.getElementById('addButton'); 
+		if (hiddenDiv.style.display == 'none') { 
+			hiddenDiv.style.display = 'block'; 
+			addButton.firstChild.data = 'Hide panel of adding your own fields'; 
+		} 
+		else { 
+			hiddenDiv.style.display = 'none'; 
+			addButton.firstChild.data = 'Show panel of adding your own fields'; 
+		} 
+	}
+	var k = 1;
+	function show_element_4(container,hider,name){
+		k = k + 1;
+		document.getElementById(hider).style.display = 'block';
+		element = document.getElementById('' + name + k);
+		element.style.display = 'block';
+		if(k==10) {
+			document.getElementById(container).style.display = 'none';
+			return;
+		}
+	}
+	function hide_element_4(container,shower,name){
+		document.getElementById(shower).style.display = 'block';
+		element = document.getElementById('' + name + k);
+		element.style.display = 'none';
+		if(k==2) {
+			document.getElementById(container).style.display = 'none';
+			k = k - 1;
+			return;
+		}
+		k = k - 1;
+	}
+	-->
+</script>
 
 {% endblock %}
