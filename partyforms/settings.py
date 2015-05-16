@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'login',
     'form_response',
     'create_form',
+    'datetimewidget'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,6 +53,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.locale.LocaleMiddleware'
 )
 
 ROOT_URLCONF = 'partyforms.urls'
