@@ -5,9 +5,9 @@ from form_response.typeHelper import convert_string_to_type
 
 
 def index(request):
-    event = EventDetails(1, 'testTITle', 'mountains', 'Open', 150, 50, 15.23, 'zadupie', '11-04-2015 11:00', '12-04-2015 13:00',
-                         'taki tam description')  # tu bedzie get eventu z bazy (po id z requesta)
-    sth = [FormField('name', True, 'CharField'), FormField('Date', False, 'DateTimeField')]
+    event = {}#EventDetails(1, 'testTITle', 'mountains', 'Open', 150, 50, 15.23, 'zadupie', '11-04-2015 11:00', '12-04-2015 13:00',
+               #          'taki tam description')  # tu bedzie get eventu z bazy (po id z requesta)
+    sth = {}#[FormField('name', True, 'CharField'), FormField('Date', False, 'DateTimeField')]
     attrs = {}
     for field in sth:
         attrs.__setitem__(field.name, convert_string_to_type(field.type))
