@@ -8,10 +8,7 @@ from create_form.models import Event, Event_own_field, Event_gift
 
 
 class RegistrationForm(forms.Form):
-    class Meta:
-        widgets = {
-            'datetime': DateTimeWidget(usel10n=True, bootstrap_version=3)
-        }
+    pass
 
 
 class Registration_instance(models.Model):
