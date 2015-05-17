@@ -6,8 +6,8 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 before_script:
-  python manage.py makemigrations
-  python manage.py migrate
+  - python manage.py makemigrations
+  - python manage.py migrate
 notifications:
   webhooks:
     urls: https://webhooks.gitter.im/e/1359f371f97ea97556e8
