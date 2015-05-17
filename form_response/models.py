@@ -1,4 +1,3 @@
-from datetimewidget.widgets import DateTimeWidget
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
