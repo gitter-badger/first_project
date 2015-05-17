@@ -104,7 +104,7 @@ class Event_gift(models.Model):
 
 class Event_own_field(models.Model):
     def __init__(self, event_own_field_id, own_field_title, own_field_description, own_field_type, event_id):
-    	self.event_own_field_id = event_own_field_id
+        self.event_own_field_id = event_own_field_id
         self.own_field_title = own_field_title
         self.own_field_description = own_field_description
         self.own_field_type = own_field_type
