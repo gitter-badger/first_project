@@ -5,4 +5,14 @@ python:
 install:
   - pip install -r requirements.txt
 # command to run tests
-script: python manage.py test
+before_script:
+  - python manage.py makemigrations
+  - python manage.py migrate
+notifications:
+  webhooks:
+    urls: https://webhooks.gitter.im/e/1359f371f97ea97556e8
+    on_success: change  # options: [always|never|change] default: always
+    on_failure: always  # options: [always|never|change] default: always
+    on_start: false     # default: false
+script:
+  python manage.py test
