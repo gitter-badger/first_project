@@ -1,9 +1,7 @@
-from django import forms
-from django.forms import model_to_dict
 from django.shortcuts import render
 # Create your views here.
 from form_response.models import FormField, RegistrationForm, EventDetails
-from login.typeHelper import convert_string_to_type
+from form_response.typeHelper import convert_string_to_type
 
 
 def index(request):

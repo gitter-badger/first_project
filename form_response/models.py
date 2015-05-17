@@ -29,7 +29,7 @@ class EventDetails(models.Model):
 
     title = models.CharField(max_length=1000)
     category = models.CharField(max_length=1000)
-    event_id = models.PositiveIntegerField()
+    event_id = models.AutoField(primary_key=True)
     status = models.CharField(max_length=1000)
     max_participants = models.PositiveIntegerField()
     current_participants_amount = models.PositiveIntegerField()
