@@ -3,28 +3,26 @@ from django.db import models
 
 # Create your models here.
 from django.forms import forms
-from create_form.models import Event, Event_own_field, Event_gift
+from create_form.models import Event, OwnField, Gift
 
 
 class RegistrationForm(forms.Form):
     pass
 
 
-class Registration_instance(models.Model):
-    registration_instance_id = models.AutoField(primary_key=True)
+class RegistrationInstance(models.Model):
     event_assessment = models.FloatField(validators=[MinValueValidator(1.0), MaxValueValidator(5.0)])
     event_fraudulent = models.BooleanField(default=False)
     registration_confirmed = models.BooleanField(default=False)
-    event_id = models.ForeignKey(Event)
+    event = models.ForeignKey(Event)
+    gifts = models.ManyToManyField(Gift,through='RegistrationInstanceGifts')
 
-class Event_form_field_instance(models.Model):
-    event_form_field_instance_id = models.AutoField(primary_key=True)
-    event_form_field_id = models.ForeignKey(Event_own_field)
+class FormFieldInstance(models.Model):
+    form_field = models.ForeignKey(OwnField)
     value = models.Field
-    registration_instance_id = models.ManyToManyField(Registration_instance)
+    registration_instance = models.ManyToManyField(RegistrationInstance)
 
-
-class Registration_instance_has_event_gift(models.Model):
-    registration_instance_id = models.ForeignKey(Registration_instance)
-    event_gift_id = models.ForeignKey(Event_gift)
+class RegistrationInstanceGifts(models.Model):
+    registration_instance = models.ForeignKey(RegistrationInstance)
+    gift = models.ForeignKey(Gift)
     amount = models.PositiveIntegerField(default=0)
