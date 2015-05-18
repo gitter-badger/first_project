@@ -1,5 +1,6 @@
 {% extends "logged_in_base_template.html" %}
 {% load static %}
+
 {% block title %}
 	Creating Form
 {% endblock %}
@@ -13,11 +14,11 @@
 <form role="form">
 	<div class="form-group">
 		<label for="inputEventTitle">Event title</label>
-		<input type="eventTitle" class="form-control" id="inputEventTitle" placeholder="Enter event title">
+		<input type="eventTitle" class="form-control" id="inputEventTitle" name="inputEventTitle" placeholder="Enter event title">
 	</div>
 	<div class="form-group">
 		<label for="inputCategory">Category</label>
-		<select class="form-control">
+		<select class="form-control" id="inputCategory" name="inputCategory">
 			<option>Mountains</option>
 			<option>Tourist</option>
 			<option>Tent</option>
@@ -42,46 +43,46 @@
 	</div>
 	<div class="form-group">
 		<label for="inputMaxPatricipants">Max participants</label>
-		<input type="number" class="form-control" id="inputMaxParticipants" placeholder="Type the maximum number of participants" min="1">
+		<input type="number" class="form-control" id="inputMaxParticipants" name="inputMaxParticipants" placeholder="Type the maximum number of participants" min="1">
 	</div>
 	<div class="form-group">
 		<label for="inputPrice">Price</label>
-		<input type="number" class="form-control" id="inputPrice" placeholder="Enter price" min="0">
+		<input type="number" class="form-control" id="inputPrice" name="inputPrice" placeholder="Enter price" min="0">
 	</div>
 	<div class="form-group">
 		<label for="inputLocation">Location</label>
-		<input type="eventTitle" class="form-control" id="inputLocation" placeholder="Enter the name of the location">
+		<input type="eventTitle" class="form-control" id="inputLocation" name="inputLocation" placeholder="Enter the name of the location">
 	</div>
 	<div class="form-group">
 		<label for="inputFrom">From</label>
-		<input type="date" class="form-control" id="inputFrom">
-		<input type="time" class="form-control" id="inputFromTime">
+		<input type="date" class="form-control" id="inputFrom" name="inputFrom">
+		<input type="time" class="form-control" id="inputFromTime" name="inputFromTime">
 	</div>
 	<div class="form-group">
 		<label for="inputTo">To</label>
-		<input type="date" class="form-control" id="inputTo">
-		<input type="time" class="form-control" id="inputToTime">
+		<input type="date" class="form-control" id="inputTo" name="inputTo">
+		<input type="time" class="form-control" id="inputToTime" name="inputToTime">
 	</div>
 	<div class="form-group">
 		<label for="inputDescription">Description</label>
-		<textarea class="form-control" id="inputDescription" rows="3" placeholder="Enter event description"></textarea>
+		<textarea class="form-control" id="inputDescription" name="inputDescription" rows="3" placeholder="Enter event description"></textarea>
 	</div>
 
 	</BR>
-	<button type="button" id="fButton" class="btn btn-success btn-block" onclick="button_1(); ">Show files fields</button>
+	<button type="button" id="fButton" name="fButton" class="btn btn-success btn-block" onclick="button_1(); ">Show files fields</button>
 	</BR>
 
 	<div class="jumbotron" id="fileHidden" style="display:none; background: #D8D8D8">
 		<div id="files" class="form-group">
 			<label for="inputFile">Files</label>
 			</BR>
-			<input type="file" id="inputFile1" class="upload">
+			<input type="file" id="inputFile1" name="inputFile1" class="upload">
 		</div>
-		<button type="button" id="addButton" class="btn btn-default btn-block" onclick="add_element('files'); ">Add next (max 10)</button>
-		<button type="button" id="removeButton" class="btn btn-default btn-block" onclick="remove_element('files'); " style="display: none; ">Remove last</button>
+		<button type="button" id="addButton" name="addButton" class="btn btn-default btn-block" onclick="add_element('files'); ">Add next (max 10)</button>
+		<button type="button" id="removeButton" name="removeButton" class="btn btn-default btn-block" onclick="remove_element('files'); " style="display: none; ">Remove last</button>
 	</div>
 
-	<button type="button" id="gButton" class="btn btn-success btn-block" onclick="button_2(); ">Show gifts fields</button>
+	<button type="button" id="gButton" name="gButton" class="btn btn-success btn-block" onclick="button_2(); ">Show gifts fields</button>
 	</BR>
 
 	<div class="jumbotron" id="giftHidden" style="display:none; background: #D8D8D8">
@@ -98,15 +99,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputGift01">Gift</label>
-							<input type="gift" class="form-control" id="inputGift01" placeholder="Enter the name of the gift">
+							<input type="gift" class="form-control" id="inputGift01" name="inputGift01" placeholder="Enter the name of the gift">
 						</div>
 						<div class="form-group">
 							<label for="inputAmount01">Amount</label>
-							<input type="number" class="form-control" id="inputAmount01" placeholder="Enter amount" min="0">
+							<input type="number" class="form-control" id="inputAmount01" name="inputAmount01" placeholder="Enter amount" min="0">
 						</div>
 						<div class="form-group">
 							<label for="inputGiftDescription01">Description</label>
-							<textarea class="form-control" id="inputGiftDescription01" rows="3" placeholder="Enter the description of the gift"></textarea>
+							<textarea class="form-control" id="inputGiftDescription01" name="inputGiftDescription01" rows="3" placeholder="Enter the description of the gift"></textarea>
 						</div>
 					</div>
 				</div>
@@ -123,15 +124,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputGift02">Gift</label>
-							<input type="gift" class="form-control" id="inputGift02" placeholder="Enter the name of the gift">
+							<input type="gift" class="form-control" id="inputGift02" name="inputGift02" placeholder="Enter the name of the gift">
 						</div>
 						<div class="form-group">
 							<label for="inputAmount02">Amount</label>
-							<input type="number" class="form-control" id="inputAmount02" placeholder="Enter amount" min="0">
+							<input type="number" class="form-control" id="inputAmount02" name="inputAmount02" placeholder="Enter amount" min="0">
 						</div>
 						<div class="form-group">
 							<label for="inputGiftDescription02">Description</label>
-							<textarea class="form-control" id="inputGiftDescription02" rows="3" placeholder="Enter the description of the gift"></textarea>
+							<textarea class="form-control" id="inputGiftDescription02" name="inputGiftDescription02" rows="3" placeholder="Enter the description of the gift"></textarea>
 						</div>
 					</div>
 				</div>
@@ -148,15 +149,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputGift03">Gift</label>
-							<input type="gift" class="form-control" id="inputGift03" placeholder="Enter the name of the gift">
+							<input type="gift" class="form-control" id="inputGift03" name="inputGift03" placeholder="Enter the name of the gift">
 						</div>
 						<div class="form-group">
 							<label for="inputAmount03">Amount</label>
-							<input type="number" class="form-control" id="inputAmount03" placeholder="Enter amount" min="0">
+							<input type="number" class="form-control" id="inputAmount03" name="inputAmount03" placeholder="Enter amount" min="0">
 						</div>
 						<div class="form-group">
 							<label for="inputGiftDescription03">Description</label>
-							<textarea class="form-control" id="inputGiftDescription03" rows="3" placeholder="Enter the description of the gift"></textarea>
+							<textarea class="form-control" id="inputGiftDescription03" name="inputGiftDescription03" rows="3" placeholder="Enter the description of the gift"></textarea>
 						</div>
 					</div>
 				</div>
@@ -173,15 +174,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputGift04">Gift</label>
-							<input type="gift" class="form-control" id="inputGift04" placeholder="Enter the name of the gift">
+							<input type="gift" class="form-control" id="inputGift04" name="inputGift04" placeholder="Enter the name of the gift">
 						</div>
 						<div class="form-group">
 							<label for="inputAmount04">Amount</label>
-							<input type="number" class="form-control" id="inputAmount04" placeholder="Enter amount" min="0">
+							<input type="number" class="form-control" id="inputAmount04" name="inputAmount04" placeholder="Enter amount" min="0">
 						</div>
 						<div class="form-group">
 							<label for="inputGiftDescription04">Description</label>
-							<textarea class="form-control" id="inputGiftDescription04" rows="3" placeholder="Enter the description of the gift"></textarea>
+							<textarea class="form-control" id="inputGiftDescription04" name="inputGiftDescription04" rows="3" placeholder="Enter the description of the gift"></textarea>
 						</div>
 					</div>
 				</div>
@@ -198,15 +199,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputGift05">Gift</label>
-							<input type="gift" class="form-control" id="inputGift05" placeholder="Enter the name of the gift">
+							<input type="gift" class="form-control" id="inputGift05" name="inputGift05" placeholder="Enter the name of the gift">
 						</div>
 						<div class="form-group">
 							<label for="inputAmount05">Amount</label>
-							<input type="number" class="form-control" id="inputAmount05" placeholder="Enter amount" min="0">
+							<input type="number" class="form-control" id="inputAmount05" name="inputAmount05" placeholder="Enter amount" min="0">
 						</div>
 						<div class="form-group">
 							<label for="inputGiftDescription05">Description</label>
-							<textarea class="form-control" id="inputGiftDescription05" rows="3" placeholder="Enter the description of the gift"></textarea>
+							<textarea class="form-control" id="inputGiftDescription05" name="inputGiftDescription05" rows="3" placeholder="Enter the description of the gift"></textarea>
 						</div>
 					</div>
 				</div>
@@ -223,15 +224,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputGift06">Gift</label>
-							<input type="gift" class="form-control" id="inputGift06" placeholder="Enter the name of the gift">
+							<input type="gift" class="form-control" id="inputGift06" name="inputGift06" placeholder="Enter the name of the gift">
 						</div>
 						<div class="form-group">
 							<label for="inputAmount06">Amount</label>
-							<input type="number" class="form-control" id="inputAmount06" placeholder="Enter amount" min="0">
+							<input type="number" class="form-control" id="inputAmount06" name="inputAmount06" placeholder="Enter amount" min="0">
 						</div>
 						<div class="form-group">
 							<label for="inputGiftDescription06">Description</label>
-							<textarea class="form-control" id="inputGiftDescription06" rows="3" placeholder="Enter the description of the gift"></textarea> 
+							<textarea class="form-control" id="inputGiftDescription06" name="inputGiftDescription06" rows="3" placeholder="Enter the description of the gift"></textarea> 
 						</div>
 					</div>
 				</div>
@@ -248,15 +249,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputGift07">Gift</label>
-							<input type="gift" class="form-control" id="inputGift07" placeholder="Enter the name of the gift">
+							<input type="gift" class="form-control" id="inputGift07" name="inputGift07" placeholder="Enter the name of the gift">
 						</div>
 						<div class="form-group">
 							<label for="inputAmount07">Amount</label>
-							<input type="number" class="form-control" id="inputAmount07" placeholder="Enter amount" min="0">
+							<input type="number" class="form-control" id="inputAmount07" name="inputAmount07" placeholder="Enter amount" min="0">
 						</div>
 						<div class="form-group">
 							<label for="inputGiftDescription07">Description</label>
-							<textarea class="form-control" id="inputGiftDescription07" rows="3" placeholder="Enter the description of the gift"></textarea>
+							<textarea class="form-control" id="inputGiftDescription07" name="inputGiftDescription07" rows="3" placeholder="Enter the description of the gift"></textarea>
 						</div>
 					</div>
 				</div>
@@ -273,15 +274,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputGift08">Gift</label>
-							<input type="gift" class="form-control" id="inputGift08" placeholder="Enter the name of the gift">
+							<input type="gift" class="form-control" id="inputGift08" name="inputGift08" placeholder="Enter the name of the gift">
 						</div>
 						<div class="form-group">
 							<label for="inputAmount08">Amount</label>
-							<input type="number" class="form-control" id="inputAmount08" placeholder="Enter amount" min="0">
+							<input type="number" class="form-control" id="inputAmount08" name="inputAmount08" placeholder="Enter amount" min="0">
 						</div>
 						<div class="form-group">
 							<label for="inputGiftDescription08">Description</label>
-							<textarea class="form-control" id="inputGiftDescription08" rows="3" placeholder="Enter the description of the gift"></textarea>
+							<textarea class="form-control" id="inputGiftDescription08" name="inputGiftDescription08" rows="3" placeholder="Enter the description of the gift"></textarea>
 						</div>
 					</div>
 				</div>
@@ -298,15 +299,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputGift09">Gift</label>
-							<input type="gift" class="form-control" id="inputGift09" placeholder="Enter the name of the gift">
+							<input type="gift" class="form-control" id="inputGift09" name="inputGift09" placeholder="Enter the name of the gift">
 						</div>
 						<div class="form-group">
 							<label for="inputAmount09">Amount</label>
-							<input type="number" class="form-control" id="inputAmount09" placeholder="Enter amount" min="0">
+							<input type="number" class="form-control" id="inputAmount09" name="inputAmount09" placeholder="Enter amount" min="0">
 						</div>
 						<div class="form-group">
 							<label for="inputGiftDescription09">Description</label>
-							<textarea class="form-control" id="inputGiftDescription09" rows="3" placeholder="Enter the description of the gift"></textarea>
+							<textarea class="form-control" id="inputGiftDescription09" name="inputGiftDescription09" rows="3" placeholder="Enter the description of the gift"></textarea>
 						</div>
 					</div>
 				</div>
@@ -323,26 +324,26 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputGift10">Gift</label>
-							<input type="gift" class="form-control" id="inputGift10" placeholder="Enter the name of the gift">
+							<input type="gift" class="form-control" id="inputGift10" name="inputGift10" placeholder="Enter the name of the gift">
 						</div>
 						<div class="form-group">
 							<label for="inputAmount10">Amount</label>
-							<input type="number" class="form-control" id="inputAmount10" placeholder="Enter amount" min="0">
+							<input type="number" class="form-control" id="inputAmount10" name="inputAmount10" placeholder="Enter amount" min="0">
 						</div>
 						<div class="form-group">
 							<label for="inputGiftDescription10">Description</label>
-							<textarea class="form-control" id="inputGiftDescription10" rows="3" placeholder="Enter the description of the gift"></textarea>
+							<textarea class="form-control" id="inputGiftDescription10" name="inputGiftDescription10" rows="3" placeholder="Enter the description of the gift"></textarea>
 						</div>
 					</div>
 				</div>
 			</div>
 			</BR>
-			<button type="button" id="showButtonG" class="btn btn-default btn-block" onclick="show_element_2('showButtonG','hideButtonG','gift'); ">Add next (max 10)</button>
-			<button type="button" id="hideButtonG" class="btn btn-default btn-block" onclick="hide_element_2('hideButtonG','showButtonG','gift'); " style="display: none; ">Remove last</button>
+			<button type="button" id="showButtonG" name="showButtonG" class="btn btn-default btn-block" onclick="show_element_2('showButtonG','hideButtonG','gift'); ">Add next (max 10)</button>
+			<button type="button" id="hideButtonG" name="hideButtonG" class="btn btn-default btn-block" onclick="hide_element_2('hideButtonG','showButtonG','gift'); " style="display: none; ">Remove last</button>
 		</div>
 	</div>
 
-	<button type="button" id="seButton" class="btn btn-success btn-block" onclick="button_3(); ">Show small events fields</button>
+	<button type="button" id="seButton" name="seButton" class="btn btn-success btn-block" onclick="button_3(); ">Show small events fields</button>
 	</BR>
 
 	<div class="jumbotron" id="smallEventsHidden" style="display:none; background: #D8D8D8">
@@ -359,21 +360,21 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputSmallEventName01">Small event name</label>
-							<input type="smallEvent" class="form-control" id="inputSmallEventName01" placeholder="Enter the name of small event">
+							<input type="smallEvent" class="form-control" id="inputSmallEventName01" name="inputSmallEventName01" placeholder="Enter the name of small event">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventFrom01">From</label>
-							<input type="date" class="form-control" id="inputSmallEventFrom01">
-							<input type="time" class="form-control" id="inputSmallEventFromTime01">
+							<input type="date" class="form-control" id="inputSmallEventFrom01" name="inputSmallEventFrom01">
+							<input type="time" class="form-control" id="inputSmallEventFromTime01" name="inputSmallEventFromTime01">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventTo01">To</label>
-							<input type="date" class="form-control" id="inputSmallEventTo01">
-							<input type="time" class="form-control" id="inputSmallEventToTime01">
+							<input type="date" class="form-control" id="inputSmallEventTo01" name="inputSmallEventTo01">
+							<input type="time" class="form-control" id="inputSmallEventToTime01" name="inputSmallEventToTime01">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventDescription01">Description</label>
-							<textarea class="form-control" id="inputSmallEventDescription01" rows="3" placeholder="Enter the description of small event"></textarea>
+							<textarea class="form-control" id="inputSmallEventDescription01" name="inputSmallEventDescription01" rows="3" placeholder="Enter the description of small event"></textarea>
 						</div>
 					</div>
 				</div>
@@ -390,21 +391,21 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputSmallEventName02">Small event name</label>
-							<input type="smallEvent" class="form-control" id="inputSmallEventName02" placeholder="Enter the name of small event">
+							<input type="smallEvent" class="form-control" id="inputSmallEventName02" name="inputSmallEventName02" placeholder="Enter the name of small event">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventFrom02">From</label>
-							<input type="date" class="form-control" id="inputSmallEventFrom02">
-							<input type="time" class="form-control" id="inputSmallEventFromTime02">
+							<input type="date" class="form-control" id="inputSmallEventFrom02" name="inputSmallEventFrom02">
+							<input type="time" class="form-control" id="inputSmallEventFromTime02" name="inputSmallEventFromTime02">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventTo02">To</label>
-							<input type="date" class="form-control" id="inputSmallEventTo02">
-							<input type="time" class="form-control" id="inputSmallEventToTime02">
+							<input type="date" class="form-control" id="inputSmallEventTo02" name="inputSmallEventTo02">
+							<input type="time" class="form-control" id="inputSmallEventToTime02" name="inputSmallEventToTime02">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventDescription02">Description</label>
-							<textarea class="form-control" id="inputSmallEventDescription02" rows="3" placeholder="Enter the description of small event"></textarea>
+							<textarea class="form-control" id="inputSmallEventDescription02" name="inputSmallEventDescription02" rows="3" placeholder="Enter the description of small event"></textarea>
 						</div>
 					</div>
 				</div>
@@ -421,21 +422,21 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputSmallEventName03">Small event name</label>
-							<input type="smallEvent" class="form-control" id="inputSmallEventName03" placeholder="Enter the name of small event">
+							<input type="smallEvent" class="form-control" id="inputSmallEventName03" name="inputSmallEventName03" placeholder="Enter the name of small event">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventFrom03">From</label>
-							<input type="date" class="form-control" id="inputSmallEventFrom03">
-							<input type="time" class="form-control" id="inputSmallEventFromTime03">
+							<input type="date" class="form-control" id="inputSmallEventFrom03" name="inputSmallEventFrom03">
+							<input type="time" class="form-control" id="inputSmallEventFromTime03" name="inputSmallEventFromTime03">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventTo03">To</label>
-							<input type="date" class="form-control" id="inputSmallEventTo03">
-							<input type="time" class="form-control" id="inputSmallEventToTime03">
+							<input type="date" class="form-control" id="inputSmallEventTo03" name="inputSmallEventTo03">
+							<input type="time" class="form-control" id="inputSmallEventToTime03" name="inputSmallEventToTime03">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventDescription03">Description</label>
-							<textarea class="form-control" id="inputSmallEventDescription03" rows="3" placeholder="Enter the description of small event"></textarea>
+							<textarea class="form-control" id="inputSmallEventDescription03" name="inputSmallEventDescription03" rows="3" placeholder="Enter the description of small event"></textarea>
 						</div>
 					</div>
 				</div>
@@ -452,21 +453,21 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputSmallEventName04">Small event name</label>
-							<input type="smallEvent" class="form-control" id="inputSmallEventName04" placeholder="Enter the name of small event">
+							<input type="smallEvent" class="form-control" id="inputSmallEventName04" name="inputSmallEventName04" placeholder="Enter the name of small event">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventFrom04">From</label>
-							<input type="date" class="form-control" id="inputSmallEventFrom04">
-							<input type="time" class="form-control" id="inputSmallEventFromTime04">
+							<input type="date" class="form-control" id="inputSmallEventFrom04" name="inputSmallEventFrom04">
+							<input type="time" class="form-control" id="inputSmallEventFromTime04" name="inputSmallEventFromTime04">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventTo04">To</label>
-							<input type="date" class="form-control" id="inputSmallEventTo04">
-							<input type="time" class="form-control" id="inputSmallEventToTime04">
+							<input type="date" class="form-control" id="inputSmallEventTo04" name="inputSmallEventTo04">
+							<input type="time" class="form-control" id="inputSmallEventToTime04" name="inputSmallEventToTime04">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventDescription04">Description</label>
-							<textarea class="form-control" id="inputSmallEventDescription04" rows="3" placeholder="Enter the description of small event"></textarea>
+							<textarea class="form-control" id="inputSmallEventDescription04" name="inputSmallEventDescription04" rows="3" placeholder="Enter the description of small event"></textarea>
 						</div>
 					</div>
 				</div>
@@ -483,21 +484,21 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputSmallEventName05">Small event name</label>
-							<input type="smallEvent" class="form-control" id="inputSmallEventName05" placeholder="Enter the name of small event">
+							<input type="smallEvent" class="form-control" id="inputSmallEventName05" name="inputSmallEventName05" placeholder="Enter the name of small event">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventFrom05">From</label>
-							<input type="date" class="form-control" id="inputSmallEventFrom05">
-							<input type="time" class="form-control" id="inputSmallEventFromTime05">
+							<input type="date" class="form-control" id="inputSmallEventFrom05" name="inputSmallEventFrom05">
+							<input type="time" class="form-control" id="inputSmallEventFromTime05" name="inputSmallEventFromTime05">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventTo05">To</label>
-							<input type="date" class="form-control" id="inputSmallEventTo05">
-							<input type="time" class="form-control" id="inputSmallEventToTime05">
+							<input type="date" class="form-control" id="inputSmallEventTo05" name="inputSmallEventTo05">
+							<input type="time" class="form-control" id="inputSmallEventToTime05" name="inputSmallEventToTime05">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventDescription05">Description</label>
-							<textarea class="form-control" id="inputSmallEventDescription05" rows="3" placeholder="Enter the description of small event"></textarea>
+							<textarea class="form-control" id="inputSmallEventDescription05" name="inputSmallEventDescription05" rows="3" placeholder="Enter the description of small event"></textarea>
 						</div>
 					</div>
 				</div>
@@ -514,21 +515,21 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputSmallEventName06">Small event name</label>
-							<input type="smallEvent" class="form-control" id="inputSmallEventName06" placeholder="Enter the name of small event">
+							<input type="smallEvent" class="form-control" id="inputSmallEventName06" name="inputSmallEventName06" placeholder="Enter the name of small event">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventFrom06">From</label>
-							<input type="date" class="form-control" id="inputSmallEventFrom06">
-							<input type="time" class="form-control" id="inputSmallEventFromTime06">
+							<input type="date" class="form-control" id="inputSmallEventFrom06" name="inputSmallEventFrom06">
+							<input type="time" class="form-control" id="inputSmallEventFromTime06" name="inputSmallEventFromTime06">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventTo06">To</label>
-							<input type="date" class="form-control" id="inputSmallEventTo06">
-							<input type="time" class="form-control" id="inputSmallEventToTime06">
+							<input type="date" class="form-control" id="inputSmallEventTo06" name="inputSmallEventTo06">
+							<input type="time" class="form-control" id="inputSmallEventToTime06" name="inputSmallEventToTime06">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventDescription06">Description</label>
-							<textarea class="form-control" id="inputSmallEventDescription06" rows="3" placeholder="Enter the description of small event"></textarea>
+							<textarea class="form-control" id="inputSmallEventDescription06" name="inputSmallEventDescription06" rows="3" placeholder="Enter the description of small event"></textarea>
 						</div>
 					</div>
 				</div>
@@ -545,21 +546,21 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputSmallEventName07">Small event name</label>
-							<input type="smallEvent" class="form-control" id="inputSmallEventName07" placeholder="Enter the name of small event">
+							<input type="smallEvent" class="form-control" id="inputSmallEventName07" name="inputSmallEventName07" placeholder="Enter the name of small event">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventFrom07">From</label>
-							<input type="date" class="form-control" id="inputSmallEventFrom07">
-							<input type="time" class="form-control" id="inputSmallEventFromTime07">
+							<input type="date" class="form-control" id="inputSmallEventFrom07" name="inputSmallEventFrom07">
+							<input type="time" class="form-control" id="inputSmallEventFromTime07" name="inputSmallEventFromTime07">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventTo07">To</label>
-							<input type="date" class="form-control" id="inputSmallEventTo07">
-							<input type="time" class="form-control" id="inputSmallEventToTime07">
+							<input type="date" class="form-control" id="inputSmallEventTo07" name="inputSmallEventTo07">
+							<input type="time" class="form-control" id="inputSmallEventToTime07" name="inputSmallEventToTime07">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventDescription07">Description</label>
-							<textarea class="form-control" id="inputSmallEventDescription07" rows="3" placeholder="Enter the description of small event"></textarea>
+							<textarea class="form-control" id="inputSmallEventDescription07" name="inputSmallEventDescription07" rows="3" placeholder="Enter the description of small event"></textarea>
 						</div>
 					</div>
 				</div>
@@ -576,21 +577,21 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputSmallEventName08">Small event name</label>
-							<input type="smallEvent" class="form-control" id="inputSmallEventName08" placeholder="Enter the name of small event">
+							<input type="smallEvent" class="form-control" id="inputSmallEventName08" name="inputSmallEventName08" placeholder="Enter the name of small event">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventFrom08">From</label>
-							<input type="date" class="form-control" id="inputSmallEventFrom08">
-							<input type="time" class="form-control" id="inputSmallEventFromTime08">
+							<input type="date" class="form-control" id="inputSmallEventFrom08" name="inputSmallEventFrom08">
+							<input type="time" class="form-control" id="inputSmallEventFromTime08" name="inputSmallEventFromTime08">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventTo08">To</label>
-							<input type="date" class="form-control" id="inputSmallEventTo08">
-							<input type="time" class="form-control" id="inputSmallEventToTime08">
+							<input type="date" class="form-control" id="inputSmallEventTo08" name="inputSmallEventTo08">
+							<input type="time" class="form-control" id="inputSmallEventToTime08" name="inputSmallEventToTime08">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventDescription08">Description</label>
-							<textarea class="form-control" id="inputSmallEventDescription08" rows="3" placeholder="Enter the description of small event"></textarea>
+							<textarea class="form-control" id="inputSmallEventDescription08" name="inputSmallEventDescription08" rows="3" placeholder="Enter the description of small event"></textarea>
 						</div>
 					</div>
 				</div>
@@ -607,21 +608,21 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputSmallEventName09">Small event name</label>
-							<input type="smallEvent" class="form-control" id="inputSmallEventName09" placeholder="Enter the name of small event">
+							<input type="smallEvent" class="form-control" id="inputSmallEventName09" name="inputSmallEventName09" placeholder="Enter the name of small event">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventFrom09">From</label>
-							<input type="date" class="form-control" id="inputSmallEventFrom09">
-							<input type="time" class="form-control" id="inputSmallEventFromTime09">
+							<input type="date" class="form-control" id="inputSmallEventFrom09" name="inputSmallEventFrom09">
+							<input type="time" class="form-control" id="inputSmallEventFromTime09" name="inputSmallEventFromTime09">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventTo09">To</label>
-							<input type="date" class="form-control" id="inputSmallEventTo09">
-							<input type="time" class="form-control" id="inputSmallEventToTime09">
+							<input type="date" class="form-control" id="inputSmallEventTo09" name="inputSmallEventTo09">
+							<input type="time" class="form-control" id="inputSmallEventToTime09" name="inputSmallEventToTime09">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventDescription09">Description</label>
-							<textarea class="form-control" id="inputSmallEventDescription09" rows="3" placeholder="Enter the description of small event"></textarea>
+							<textarea class="form-control" id="inputSmallEventDescription09" name="inputSmallEventDescription09" rows="3" placeholder="Enter the description of small event"></textarea>
 						</div>
 					</div>
 				</div>
@@ -642,31 +643,31 @@
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventFrom10">From</label>
-							<input type="date" class="form-control" id="inputSmallEventFrom10">
-							<input type="time" class="form-control" id="inputSmallEventFromTime10">
+							<input type="date" class="form-control" id="inputSmallEventFrom10" name="inputSmallEventFrom10">
+							<input type="time" class="form-control" id="inputSmallEventFromTime10" name="inputSmallEventFromTime10">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventTo10">To</label>
-							<input type="date" class="form-control" id="inputSmallEventTo10">
-							<input type="time" class="form-control" id="inputSmallEventToTime10">
+							<input type="date" class="form-control" id="inputSmallEventTo10" name="inputSmallEventTo10">
+							<input type="time" class="form-control" id="inputSmallEventToTime10" name="inputSmallEventToTime10">
 						</div>
 						<div class="form-group">
 							<label for="inputSmallEventDescription10">Description</label>
-							<textarea class="form-control" id="inputSmallEventDescription10" rows="3" placeholder="Enter the description of small event"></textarea>
+							<textarea class="form-control" id="inputSmallEventDescription10" name="inputSmallEventDescription10" rows="3" placeholder="Enter the description of small event"></textarea>
 						</div>
 					</div>
 				</div>
 			</div>
 			</BR>
-			<button type="button" id="showButtonE" class="btn btn-default btn-block" onclick="show_element_3('showButtonE','hideButtonE','small'); ">Add next (max 10)</button>
-			<button type="button" id="hideButtonE" class="btn btn-default btn-block" onclick="hide_element_3('hideButtonE','showButtonE','small'); " style="display: none; ">Remove last</button>
+			<button type="button" id="showButtonE" name="showButtonE" class="btn btn-default btn-block" onclick="show_element_3('showButtonE','hideButtonE','small'); ">Add next (max 10)</button>
+			<button type="button" id="hideButtonE" name="hideButtonE" class="btn btn-default btn-block" onclick="hide_element_3('hideButtonE','showButtonE','small'); " style="display: none; ">Remove last</button>
 		</div>
 	</div>
 
-	<button type="button" id="addButton" class="btn btn-success btn-block" onclick="button_4(); ">Show panel of adding your own fields</button>
+	<button type="button" id="addButton" name="addButton" class="btn btn-success btn-block" onclick="button_4(); ">Show panel of adding your own fields</button>
 	</BR>
 
-	<div class="jumbotron" id="addOwnFieldsHidden" style="display:none; background: #D8D8D8">
+	<div class="jumbotron" id="addOwnFieldsHidden" name="addOwnFieldsHidden" style="display:none; background: #D8D8D8">
 
 		<div class="panel-group" id="accordion3">
 			<div class="panel panel-primary">
@@ -682,15 +683,15 @@
 						<div class="panel-body">
 							<div class="form-group">
 								<label for="inputAdd01Title">Title of new field</label>
-								<input type="add01Title" class="form-control" id="inputAdd01Title" placeholder="Enter the name of the field">
+								<input type="add01Title" class="form-control" id="inputAdd01Title" name="inputAdd01Title" placeholder="Enter the name of the field">
 							</div>
 							<div class="form-group">
 								<label for="inputAdd01Description">Description of new field</label>
-								<input type="add01Description" class="form-control" id="inputAdd01Description" placeholder="Enter the description of the field">
+								<input type="add01Description" class="form-control" id="inputAdd01Description" name="inputAdd01Description" placeholder="Enter the description of the field">
 							</div>
 							<div class="form-group">
 								<label for="inputAdd01Type">Type of new field</label>
-								<input type="add01Type" class="form-control" id="inputAdd01Type" placeholder="Enter the Type of the field">
+								<input type="add01Type" class="form-control" id="inputAdd01Type" name="inputAdd01Type" placeholder="Enter the Type of the field">
 							</div>
 						</div>
 					</div>
@@ -709,15 +710,15 @@
 						<div class="panel-body">
 							<div class="form-group">
 								<label for="inputAdd02Title">Title of new field</label>
-								<input type="add02Title" class="form-control" id="inputAdd02Title" placeholder="Enter the name of the field">
+								<input type="add02Title" class="form-control" id="inputAdd02Title" name="inputAdd02Title" placeholder="Enter the name of the field">
 							</div>
 							<div class="form-group">
 								<label for="inputAdd02Description">Description of new field</label>
-								<input type="add02Description" class="form-control" id="inputAdd02Description" placeholder="Enter the description of the field">
+								<input type="add02Description" class="form-control" id="inputAdd02Description" name="inputAdd02Description" placeholder="Enter the description of the field">
 							</div>
 							<div class="form-group">
 								<label for="inputAdd02Type">Type of new field</label>
-								<input type="add02Type" class="form-control" id="inputAdd02Type" placeholder="Enter the Type of the field">
+								<input type="add02Type" class="form-control" id="inputAdd02Type" name="inputAdd02Type" placeholder="Enter the Type of the field">
 							</div>
 						</div>
 					</div>
@@ -735,15 +736,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputAdd03Title">Title of new field</label>
-							<input type="add03Title" class="form-control" id="inputAdd03Title" placeholder="Enter the name of the field">
+							<input type="add03Title" class="form-control" id="inputAdd03Title" name="inputAdd03Title" placeholder="Enter the name of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd03Description">Description of new field</label>
-							<input type="add03Description" class="form-control" id="inputAdd03Description" placeholder="Enter the description of the field">
+							<input type="add03Description" class="form-control" id="inputAdd03Description" name="inputAdd03Description" placeholder="Enter the description of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd03Type">Type of new field</label>
-							<input type="add03Type" class="form-control" id="inputAdd03Type" placeholder="Enter the Type of the field">
+							<input type="add03Type" class="form-control" id="inputAdd03Type" name="inputAdd03Type" placeholder="Enter the Type of the field">
 						</div>
 					</div>
 				</div>
@@ -760,15 +761,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputAdd04Title">Title of new field</label>
-							<input type="add04Title" class="form-control" id="inputAdd04Title" placeholder="Enter the name of the field">
+							<input type="add04Title" class="form-control" id="inputAdd04Title" name="inputAdd04Title" placeholder="Enter the name of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd04Description">Description of new field</label>
-							<input type="add04Description" class="form-control" id="inputAdd04Description" placeholder="Enter the description of the field">
+							<input type="add04Description" class="form-control" id="inputAdd04Description" name="inputAdd04Description" placeholder="Enter the description of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd04Type">Type of new field</label>
-							<input type="add04Type" class="form-control" id="inputAdd04Type" placeholder="Enter the Type of the field">
+							<input type="add04Type" class="form-control" id="inputAdd04Type" name="inputAdd04Type" placeholder="Enter the Type of the field">
 						</div>
 					</div>
 				</div>
@@ -785,15 +786,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputAdd05Title">Title of new field</label>
-							<input type="add05Title" class="form-control" id="inputAdd05Title" placeholder="Enter the name of the field">
+							<input type="add05Title" class="form-control" id="inputAdd05Title" name="inputAdd05Title" placeholder="Enter the name of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd05Description">Description of new field</label>
-							<input type="add05Description" class="form-control" id="inputAdd05Description" placeholder="Enter the description of the field">
+							<input type="add05Description" class="form-control" id="inputAdd05Description" name="inputAdd05Description" placeholder="Enter the description of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd05Type">Type of new field</label>
-							<input type="add05Type" class="form-control" id="inputAdd05Type" placeholder="Enter the Type of the field">
+							<input type="add05Type" class="form-control" id="inputAdd05Type" name="inputAdd05Type" placeholder="Enter the Type of the field">
 						</div>
 					</div>
 				</div>
@@ -810,15 +811,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputAdd06Title">Title of new field</label>
-							<input type="add06Title" class="form-control" id="inputAdd06Title" placeholder="Enter the name of the field">
+							<input type="add06Title" class="form-control" id="inputAdd06Title" name="inputAdd06Title" placeholder="Enter the name of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd06Description">Description of new field</label>
-							<input type="add06Description" class="form-control" id="inputAdd06Description" placeholder="Enter the description of the field">
+							<input type="add06Description" class="form-control" id="inputAdd06Description" name="inputAdd06Description" placeholder="Enter the description of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd06Type">Type of new field</label>
-							<input type="add06Type" class="form-control" id="inputAdd06Type" placeholder="Enter the Type of the field">
+							<input type="add06Type" class="form-control" id="inputAdd06Type" name="inputAdd06Type" placeholder="Enter the Type of the field">
 						</div>
 					</div>
 				</div>
@@ -835,15 +836,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputAdd07Title">Title of new field</label>
-							<input type="add07Title" class="form-control" id="inputAdd07Title" placeholder="Enter the name of the field">
+							<input type="add07Title" class="form-control" id="inputAdd07Title" name="inputAdd07Title" placeholder="Enter the name of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd07Description">Description of new field</label>
-							<input type="add07Description" class="form-control" id="inputAdd07Description" placeholder="Enter the description of the field">
+							<input type="add07Description" class="form-control" id="inputAdd07Description" name="inputAdd07Description" placeholder="Enter the description of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd07Type">Type of new field</label>
-							<input type="add07Type" class="form-control" id="inputAdd07Type" placeholder="Enter the Type of the field">
+							<input type="add07Type" class="form-control" id="inputAdd07Type" name="inputAdd07Type" placeholder="Enter the Type of the field">
 						</div>
 					</div>
 				</div>
@@ -860,15 +861,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputAdd08Title">Title of new field</label>
-							<input type="add08Title" class="form-control" id="inputAdd08Title" placeholder="Enter the name of the field">
+							<input type="add08Title" class="form-control" id="inputAdd08Title" name="inputAdd08Title" placeholder="Enter the name of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd08Description">Description of new field</label>
-							<input type="add08Description" class="form-control" id="inputAdd08Description" placeholder="Enter the description of the field">
+							<input type="add08Description" class="form-control" id="inputAdd08Description" name="inputAdd08Description" placeholder="Enter the description of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd08Type">Type of new field</label>
-							<input type="add08Type" class="form-control" id="inputAdd08Type" placeholder="Enter the Type of the field">
+							<input type="add08Type" class="form-control" id="inputAdd08Type" name="inputAdd08Type" placeholder="Enter the Type of the field">
 						</div>
 					</div>
 				</div>
@@ -885,15 +886,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputAdd09Title">Title of new field</label>
-							<input type="add09Title" class="form-control" id="inputAdd09Title" placeholder="Enter the name of the field">
+							<input type="add09Title" class="form-control" id="inputAdd09Title" name="inputAdd09Title" placeholder="Enter the name of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd09Description">Description of new field</label>
-							<input type="add09Description" class="form-control" id="inputAdd09Description" placeholder="Enter the description of the field">
+							<input type="add09Description" class="form-control" id="inputAdd09Description" name="inputAdd09Description" placeholder="Enter the description of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd09Type">Type of new field</label>
-							<input type="add09Type" class="form-control" id="inputAdd09Type" placeholder="Enter the Type of the field">
+							<input type="add09Type" class="form-control" id="inputAdd09Type" name="inputAdd09Type" placeholder="Enter the Type of the field">
 						</div>
 					</div>
 				</div>
@@ -910,22 +911,22 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="inputAdd10Title">Title of new field</label>
-							<input type="add10Title" class="form-control" id="inputAdd10Title" placeholder="Enter the name of the field">
+							<input type="add10Title" class="form-control" id="inputAdd10Title" name="inputAdd10Title" placeholder="Enter the name of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd10Description">Description of new field</label>
-							<input type="add10Description" class="form-control" id="inputAdd10Description" placeholder="Enter the description of the field">
+							<input type="add10Description" class="form-control" id="inputAdd10Description" name="inputAdd10Description" placeholder="Enter the description of the field">
 						</div>
 						<div class="form-group">
 							<label for="inputAdd10Type">Type of new field</label>
-							<input type="add10Type" class="form-control" id="inputAdd10Type" placeholder="Enter the Type of the field">
+							<input type="add10Type" class="form-control" id="inputAdd10Type" name="inputAdd10Type" placeholder="Enter the Type of the field">
 						</div>
 					</div>
 				</div>
 			</div>
 			</BR>
-			<button type="button" id="showButton" class="btn btn-default btn-block" onclick="show_element_4('showButton','hideButton','add'); ">Add next (max 10)</button>
-			<button type="button" id="hideButton" class="btn btn-default btn-block" onclick="hide_element_4('hideButton','showButton','add'); " style="display: none; ">Remove last</button>
+			<button type="button" id="showButton" name="showButton" class="btn btn-default btn-block" onclick="show_element_4('showButton','hideButton','add'); ">Add next (max 10)</button>
+			<button type="button" id="hideButton" name="hideButton" class="btn btn-default btn-block" onclick="hide_element_4('hideButton','showButton','add'); " style="display: none; ">Remove last</button>
 		</div>
 	</div>
 
