@@ -8,24 +8,24 @@ import django.core.validators
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('create_form', '0002_auto_20150518_2341'),
+        ('create_form', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Form_field_instance',
+            name='FormFieldInstance',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('formField', models.ForeignKey(to='create_form.OwnField')),
+                ('form_field', models.ForeignKey(to='create_form.OwnField')),
             ],
         ),
         migrations.CreateModel(
             name='RegistrationInstance',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('eventAssessment', models.FloatField(validators=[django.core.validators.MinValueValidator(1.0), django.core.validators.MaxValueValidator(5.0)])),
-                ('eventFraudulent', models.BooleanField(default=False)),
-                ('registrationConfirmed', models.BooleanField(default=False)),
+                ('event_assessment', models.FloatField(validators=[django.core.validators.MinValueValidator(1.0), django.core.validators.MaxValueValidator(5.0)])),
+                ('event_fraudulent', models.BooleanField(default=False)),
+                ('registration_confirmed', models.BooleanField(default=False)),
                 ('event', models.ForeignKey(to='create_form.Event')),
             ],
         ),
@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('amount', models.PositiveIntegerField(default=0)),
                 ('gift', models.ForeignKey(to='create_form.Gift')),
-                ('registrationInstance', models.ForeignKey(to='form_response.RegistrationInstance')),
+                ('registration_instance', models.ForeignKey(to='form_response.RegistrationInstance')),
             ],
         ),
         migrations.AddField(
@@ -44,8 +44,8 @@ class Migration(migrations.Migration):
             field=models.ManyToManyField(to='create_form.Gift', through='form_response.RegistrationInstanceGifts'),
         ),
         migrations.AddField(
-            model_name='form_field_instance',
-            name='registrationInstance',
+            model_name='formfieldinstance',
+            name='registration_instance',
             field=models.ManyToManyField(to='form_response.RegistrationInstance'),
         ),
     ]
