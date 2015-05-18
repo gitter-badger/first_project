@@ -11,7 +11,8 @@
 </p>
 </BR>
 
-<form role="form">
+<form action="./form_creation/" role="form" method="post">
+ {% csrf_token %}
 	<div class="form-group">
 		<label for="inputEventTitle">Event title</label>
 		<input type="eventTitle" class="form-control" id="inputEventTitle" name="inputEventTitle" placeholder="Enter event title">
