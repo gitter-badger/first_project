@@ -12,25 +12,25 @@ class Event(models.Model):
     status = models.ForeignKey(Status)
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=200)
-    maxParticipants = models.PositiveIntegerField()
+    max_participants = models.PositiveIntegerField()
     price = models.FloatField()
     location = models.CharField(max_length=200)
-    startDate = models.DateTimeField()
-    endDate = models.DateTimeField()
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
     description = models.TextField()
 
 class FileType(models.Model):
-    fileType = models.CharField(max_length=40)
+    file_type = models.CharField(max_length=40)
 
 class Files(models.Model):
-    fileName = models.CharField(max_length=40)
-    fileType = models.ForeignKey(FileType)
+    file_name = models.CharField(max_length=40)
+    file_type = models.ForeignKey(FileType)
     event = models.ForeignKey(Event)
 
 class Schedule(models.Model):
     name = models.CharField(max_length=40)
-    startDate = models.DateTimeField()
-    endDate = models.DateTimeField()
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
     description = models.TextField()
     event = models.ForeignKey(Event)
 
@@ -43,6 +43,5 @@ class Gift(models.Model):
 class OwnField(models.Model):
     title = models.CharField(max_length=40)
     description = models.TextField()
-    fieldType = models.CharField(max_length=40)
+    field_type = models.CharField(max_length=40)
     event = models.ForeignKey(Event)
-    
