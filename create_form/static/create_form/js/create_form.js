@@ -16,7 +16,7 @@ function add_element(container){
 	l = l + 1;
 	var znacznik = document.createElement('input');
 	znacznik.setAttribute('type', 'file');
-	znacznik.setAttribute('name', 'file');
+	znacznik.setAttribute('name', 'inputFile' + l);
 	znacznik.setAttribute('id', 'inputFile' + l);
 	znacznik.className = 'upload';
 	var container = document.getElementById(container);
