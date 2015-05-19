@@ -13,7 +13,7 @@ from datetime import datetime
 import create_form.models as CreateForm
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-def index(request,eventId):
+def index(request):
     #Pobierz event
     # user_1 = User.objects.create_user("test")
     # event_status_1 = CreateForm.Status(name="open")
@@ -37,8 +37,8 @@ def index(request,eventId):
     # own_field.save()
     # own_field = CreateForm.OwnField(title="Title4", description="Description4", field_type="txt", event=CreateForm.Event.objects.get(id=1))
     # own_field.save()
-
-    event = Event.objects.get(id=eventId)
+    event_id = request.GET["id"]
+    event = Event.objects.get(id=event_id)
     form_fields_list = OwnField.objects.filter(event=event)
     attrs = {}
     attrs.__setitem__("name", forms.CharField(max_length=100, required=True,widget=forms.TextInput(attrs={"required":"required"})))
