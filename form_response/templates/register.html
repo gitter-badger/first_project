@@ -13,23 +13,23 @@
 </div>
 
     <div class="row">
-        <div class="col-lg-4"><b>Category:</b> {{ event.category }}</div>
+        <div class="col-lg-4"><b>Category:</b> {{ event.category.name }}</div>
         <div class="col-lg-4">
-            <b>Status:</b>
-            {% if event.status == 'Open' %}
+            <b>Registration Status:</b>
+            {% if event.status.id == 1 %}
             <span class="label label-success">Open</span>
             {% else %}
             <span class="label label-danger">Closed</span>
             {% endif %}
 
         </div>
-        <div class="col-lg-4"><b>Participants:</b> {{ event.current_participants_amount }}/{{ event.max_participants }}</div>
+        <div class="col-lg-4"><b>Participants:</b> {{ event.max_participants }}</div>
     </div>
     <br/>
     <div class="row">
         <div class="col-lg-4"><b>Price:</b> {{ event.price }}</div>
-        <div class="col-lg-4"><b>From:</b> {{ event.date_from }}</div>
-        <div class="col-lg-4"><b>To:</b> {{ event.date_to }}</div>
+        <div class="col-lg-4"><b>From:</b> {{ event.start_date }}</div>
+        <div class="col-lg-4"><b>To:</b> {{ event.end_date }}</div>
     </div>
     <br/>
     <div class="row">
@@ -41,8 +41,9 @@
 {% endblock %}
 
 {% block formblock %}
-    <form action="/register/" method="post">
+    <form action="/form_response/register/" method="post">
         {% csrf_token %}
+        <input type="hidden" name="eventId" value="{{ event.id }}"/>
         {% for field in form %}
             <div class="form-group">
                 {{ field.errors }}
