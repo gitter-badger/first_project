@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'login',
     'form_response',
     'create_form',
+    'response_list',
 )
 
 MIDDLEWARE_CLASSES = (
