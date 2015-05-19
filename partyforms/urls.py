@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^form_response/', include('form_response.urls')),
     url(r'^response_list/', include('response_list.urls')),
+    url(r'^$', include('home.urls')),
 ]

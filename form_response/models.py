@@ -7,11 +7,13 @@ from create_form.models import Event, OwnField, Gift
 
 
 class RegistrationForm(forms.Form):
-    pass
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('label_suffix', '')
+        super(RegistrationForm, self).__init__(*args, **kwargs)
 
 
 class RegistrationInstance(models.Model):
-    event_assessment = models.FloatField(validators=[MinValueValidator(1.0), MaxValueValidator(5.0)],default=2.5)
+    event_assessment = models.FloatField(validators=[MinValueValidator(1.0), MaxValueValidator(5.0)], default=2.5)
     event_fraudulent = models.BooleanField(default=False)
     name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)

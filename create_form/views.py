@@ -20,7 +20,7 @@ def map_form_to_database(form_dict, request):
     status.save()
     category = models.Category(name=form_dict["inputCategory"])
     category.save()
-    title = form_dict["inputLocation"]
+    title = form_dict["inputEventTitle"]
     max_participants = form_dict["inputMaxParticipants"]
     price = form_dict["inputPrice"]
     location = form_dict["inputLocation"]
