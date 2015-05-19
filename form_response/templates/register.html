@@ -8,51 +8,75 @@
 
 {% block eventdetailsblock %}
 
-<div class="page-header">
-        <h2 class="text-center text-uppercase">{{ event.title }}</h2>
-</div>
+<p class="text-center">
+	Sign up for the event
+</p>
 
-    <div class="row">
-        <div class="col-lg-4"><b>Category:</b> {{ event.category.name }}</div>
-        <div class="col-lg-4">
-            <b>Registration Status:</b>
-            {% if event.status.id == 1 %}
-            <span class="label label-success">Open</span>
-            {% else %}
-            <span class="label label-danger">Closed</span>
-            {% endif %}
-
+<form role="form"></form>
+    <fieldset disabled>
+        <div class="form-group">
+            <label for="showTitle">Event title</label>
+            <input type="text" class="form-control" id="showTitle" value=" {{ event.title }} ">
         </div>
-        <div class="col-lg-4"><b>Participants:</b> {{ event.max_participants }}</div>
-    </div>
-    <br/>
-    <div class="row">
-        <div class="col-lg-4"><b>Price:</b> {{ event.price }}</div>
-        <div class="col-lg-4"><b>From:</b> {{ event.start_date }}</div>
-        <div class="col-lg-4"><b>To:</b> {{ event.end_date }}</div>
-    </div>
-    <br/>
-    <div class="row">
-        <div class="col-lg-12"><b>Description:</b> </div>
-        <div class=col-lg-12>{{ event.description }}</div>
-    </div>
+        <div class="form-group">
+            <label for="showCategory">Category</label>
+            <input type="text" class="form-control" id="showCategory" value=" {{ event.category.name }} ">
+        </div>
+        <div class="form-group">
+            <label for="showParticipants">Max participants</label>
+            <input type="text" class="form-control" id="showParticipants" value=" {{ event.max_participants }} ">
+        </div>
+        <div class="form-group">
+            <label for="showPrice">Price</label>
+            <input type="text" class="form-control" id="showPrice" value=" {{ event.price }} ">
+        </div>
+        <div class="form-group">
+            <label for="showStartDate">Price</label>
+            <input type="text" class="form-control" id="showStartDate" value=" {{ event.start_date }} ">
+        </div>
+        <div class="form-group">
+            <label for="showEndDate">Price</label>
+            <input type="text" class="form-control" id="showEndDate" value=" {{ event.end_date }} ">
+        </div>
+        <div class="form-group">
+            <label for="showDescription">Description</label>
+            <textarea class="form-control" id="showDescription" name="showDescription" rows="4"> {{ event.description }} </textarea>
+        </div>
+    </fieldset>
+</form>
+
+    <!--{% if event.status.id == 1 %}-->
+        <!--<h3><span class="label label-success">Sign up now! Registration is OPEN</span></h3>-->
+    <!--{% else %}-->
+        <!--<span class="label label-danger">Registration is CLOSED</span>-->
+    <!--{% endif %}-->
 
 
 {% endblock %}
 
 {% block formblock %}
-    <form action="/form_response/register/" method="post">
+    <form action="/form_response/register/" method="post" role="form">
         {% csrf_token %}
         <input type="hidden" name="eventId" value="{{ event.id }}"/>
+        <p class="text-center">
+            Personal details
+        </p>
         {% for field in form %}
             <div class="form-group">
                 {{ field.errors }}
-                {{ field.label_tag }}<br/> {{ field }}
+                {{ field.label_tag }}
+                </BR>
+                {{ field }}
             </div>
         {% endfor %}
         <div class="form-row">
-        <input type="submit" value="Sign up for Event" class="btn btn-block btn-success"/>
-            </div>
+            </BR>
+            {% if event.status.id == 1 %}
+                <input type="submit" value="Sign up now! Registration is OPEN" class="btn btn-block btn-lg btn-success"/>
+            {% else %}
+                 <input type="submit" value="Registration is CLOSED" class="btn btn-block btn-lg btn-danger" disabled="disabled"/>
+            {% endif %}
+        </div>
     </form>
     <script>
     $(document).ready(function (){

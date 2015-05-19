@@ -41,9 +41,9 @@ def index(request):
     event = Event.objects.get(id=event_id)
     form_fields_list = OwnField.objects.filter(event=event)
     attrs = {}
-    attrs.__setitem__("name", forms.CharField(max_length=100, required=True,widget=forms.TextInput(attrs={"required":"required"})))
-    attrs.__setitem__("lastName", forms.CharField(max_length=100, required=True,widget=forms.TextInput(attrs={"required":"required"})))
-    attrs.__setitem__("email", forms.EmailField(required=True, validators=[validate_email], widget=forms.EmailInput(attrs={"required":"required"})))
+    attrs.__setitem__("name", forms.CharField(max_length=100, required=True,widget=forms.TextInput(attrs={"required":"required", 'class': 'form-control', "placeholder": "Enter your name"})))
+    attrs.__setitem__("lastName", forms.CharField(max_length=100, required=True,widget=forms.TextInput(attrs={"required":"required", 'class': 'form-control', "placeholder": "Enter your lastname"})))
+    attrs.__setitem__("email", forms.EmailField(required=True, validators=[validate_email], widget=forms.EmailInput(attrs={"required":"required",'class': 'form-control', "placeholder": "Enter your email"})))
     for field in form_fields_list:
         attrs.__setitem__(field.title, convert_string_to_type(field.field_type))
 
