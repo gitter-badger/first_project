@@ -6,8 +6,7 @@ from datetime import datetime
 
 def index(request):
     if request.user.is_authenticated():
-        context = {"username": request.user.username}
-        return render(request, 'create_form/create_form_template.html', context)
+        return render(request, 'create_form/create_form_template.html')
     else:
         return render(request, 'logged_in_simple_text.html')
 
@@ -47,6 +46,8 @@ def map_form_to_database(form_dict, request):
     return event.id
 
 def form_creation(request):
+    if not request.user.is_authenticated():
+        raise ValueError() #TODO better handling
     #try:
     pst = request.POST
     form = MyForm(pst)

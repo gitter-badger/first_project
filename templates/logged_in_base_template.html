@@ -36,8 +36,8 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li> <a><b>{{ username }}</b> </a> </li>
-              <li><a href="../form_response/list">Responses</a></li>
+                <li> <a><b>{{ request.user.username }}</b> </a> </li>
+              <li><a href="../response_list/event_list">Responses</a></li>
               <li><a href="../create_form/">Create form</a></li>
             </ul>
           </div><!--/.nav-collapse -->
