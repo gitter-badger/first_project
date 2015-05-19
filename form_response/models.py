@@ -15,12 +15,14 @@ class RegistrationInstance(models.Model):
     event_fraudulent = models.BooleanField(default=False)
     registration_confirmed = models.BooleanField(default=False)
     event = models.ForeignKey(Event)
-    gifts = models.ManyToManyField(Gift,through='RegistrationInstanceGifts')
+    gifts = models.ManyToManyField(Gift, through='RegistrationInstanceGifts', blank=True, null=True)
+
 
 class FormFieldInstance(models.Model):
     form_field = models.ForeignKey(OwnField)
-    value = models.Field
-    registration_instance = models.ManyToManyField(RegistrationInstance)
+    value = models.CharField(max_length=1000)
+    registration_instance = models.ForeignKey(RegistrationInstance)
+
 
 class RegistrationInstanceGifts(models.Model):
     registration_instance = models.ForeignKey(RegistrationInstance)
