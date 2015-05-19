@@ -9,7 +9,7 @@ def index(request):
         context = {"username": request.user.username}
         return render(request, 'create_form/create_form_template.html', context)
     else:
-        return render(request, 'error_not_logged_in.html')
+        return render(request, 'logged_in_simple_text.html')
 
 def date_time_to_datetime(date, time):
     date_ = datetime.strptime(date, "%Y-%m-%d").date()
