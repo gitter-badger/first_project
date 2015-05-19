@@ -53,7 +53,8 @@ def form_creation(request):
     if not form.is_valid():
         raise ValueError(form.errors)       ##TODO better error
     event_id = map_form_to_database(form.cleaned_data, request) ##TODO proper link
-    context = {"username": request.user.username, "form_link":  str(models.Event.objects.all())}
+    form_link = "/form_response/?id="+str(event_id)
+    context = {"username": request.user.username, "form_link": form_link }
     #except ValueError as e:
     #    return HttpResponseBadRequest(str(e))
     #else:
