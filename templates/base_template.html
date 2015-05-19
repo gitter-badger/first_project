@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="partyforms project page">
+    <meta name="author" content="MM-PITE">
+    <link rel="icon" href="../../favicon.ico">
+    <!-- @TODO -->
+
+    <title>Partyforms</title> <!-- @TODO -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="navbar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                        aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Party forms</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    {% if request.user.is_authenticated %}
+                        <li><a href="../login/logout"><b>{{ request.user.username }}</b> </a></li>
+                        <li><a href="../response_list/event_list">Responses</a></li>
+                        <li><a href="../create_form/">Create form</a></li>
+                    {% else %}
+                        <li><a href="../login/">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+    </nav>
+
+    <div class="col-lg-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">Categories</h3>
+            </div>
+                {% block categories %}
+                {% endblock %}
+        </div>
+        <br/>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">Upcoming events</h3>
+            </div>
+                {% block events %}
+                {% endblock %}
+        </div>
+    </div>
+<div class="col-lg-10">
+    <div class="jumbotron">
+        {% block mainblock %}{% endblock %}
+    </div>
+</div>
+</div>
+<!-- /container -->
+<script src="{% static 'js/jquery-2.1.3.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

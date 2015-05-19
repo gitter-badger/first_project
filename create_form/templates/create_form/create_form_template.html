@@ -15,7 +15,7 @@
  {% csrf_token %}
 	<div class="form-group">
 		<label for="inputEventTitle">Event title</label>
-		<input type="eventTitle" class="form-control" id="inputEventTitle" name="inputEventTitle" placeholder="Enter event title">
+		<input type="eventTitle" class="form-control" id="inputEventTitle" name="inputEventTitle" placeholder="Enter event title" required>
 	</div>
 	<div class="form-group">
 		<label for="inputCategory">Category</label>
@@ -44,29 +44,29 @@
 	</div>
 	<div class="form-group">
 		<label for="inputMaxPatricipants">Max participants</label>
-		<input type="number" class="form-control" id="inputMaxParticipants" name="inputMaxParticipants" placeholder="Type the maximum number of participants" min="1">
+		<input type="number" class="form-control" id="inputMaxParticipants" name="inputMaxParticipants" placeholder="Type the maximum number of participants" min="1" required>
 	</div>
 	<div class="form-group">
 		<label for="inputPrice">Price</label>
-		<input type="number" class="form-control" id="inputPrice" name="inputPrice" placeholder="Enter price" min="0">
+		<input type="number" class="form-control" id="inputPrice" name="inputPrice" placeholder="Enter price" min="0" required>
 	</div>
 	<div class="form-group">
 		<label for="inputLocation">Location</label>
-		<input type="eventTitle" class="form-control" id="inputLocation" name="inputLocation" placeholder="Enter the name of the location">
+		<input type="eventTitle" class="form-control" id="inputLocation" name="inputLocation" placeholder="Enter the name of the location" required>
 	</div>
 	<div class="form-group">
 		<label for="inputFrom">From</label>
-		<input type="date" class="form-control" id="inputFrom" name="inputFrom">
-		<input type="time" class="form-control" id="inputFromTime" name="inputFromTime">
+		<input type="date" class="form-control" id="inputFrom" name="inputFrom" required>
+		<input type="time" class="form-control" id="inputFromTime" name="inputFromTime" required>
 	</div>
 	<div class="form-group">
 		<label for="inputTo">To</label>
-		<input type="date" class="form-control" id="inputTo" name="inputTo">
-		<input type="time" class="form-control" id="inputToTime" name="inputToTime">
+		<input type="date" class="form-control" id="inputTo" name="inputTo" required>
+		<input type="time" class="form-control" id="inputToTime" name="inputToTime" required>
 	</div>
 	<div class="form-group">
 		<label for="inputDescription">Description</label>
-		<textarea class="form-control" id="inputDescription" name="inputDescription" rows="3" placeholder="Enter event description"></textarea>
+		<textarea class="form-control" id="inputDescription" name="inputDescription" rows="3" placeholder="Enter event description" required></textarea>
 	</div>
 
 	</BR>

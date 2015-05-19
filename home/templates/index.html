@@ -1,0 +1,19 @@
+{% extends "base_template.html" %}
+{% load static %}
+
+{% block categories %}
+    Categories
+{% endblock %}
+
+{% block events %}
+    <div class="list-group">
+        {% for event in events %}
+            <a href="../form_response?id={{ event.id }}" class="list-group-item">{{ event.title }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+{% block mainblock %}
+    <h3 class="text-center">Welcome to PartyForms Portal</h3>
+{% endblock %}
