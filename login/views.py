@@ -14,5 +14,5 @@ def auth(request):
     print user
     if user is not None:
         login(request, user)
-        return render(request, 'templates/logged_in_simple_text.html', {'title':"logged in",'mainblock':"you have been correctly logged as: "+str(username)})
+        return render(request, 'logged_in_simple_text.html', {'title':"logged in",'mainblock':"you have been correctly logged as: "+str(username)})
     return render(request, 'login/failed.html')
