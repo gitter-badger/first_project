@@ -22,7 +22,7 @@ class MyForm(forms.Form):
             required=False
             if key in required_fields:
                 required = True
-            if "Amount" in key or "MaxParticipants":
+            if "Amount" in key or "MaxParticipants" in key or "Price" in key:
                 self.fields[key] = forms.IntegerField(required=required)
             elif "FromTime" in key or "ToTime" in key:
                 self.fields[key] = forms.TimeField(required=required)

@@ -45,4 +45,3 @@ class OwnField(models.Model):
     description = models.TextField()
     field_type = models.CharField(max_length=40)
     event = models.ForeignKey(Event)
-    
