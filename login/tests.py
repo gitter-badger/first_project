@@ -12,7 +12,7 @@ class LoginTest(TestCase):
         User.objects.create_user('imie', 'raz@dwa.pl', 1)
         response = self.client.post('/login/auth/', {'inputEmail': 'raz@dwa.pl', 'inputPassword': 1})
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'login/success.html')
+        self.assertTemplateUsed(response, 'logged_in_simple_text.html')
 
     def test_login_fail(self):
         User.objects.create_user('imie', 'raz@dwa.pl', 1)
