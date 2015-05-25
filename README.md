@@ -1,4 +1,6 @@
 #Party Forms
+
+[![Join the chat at https://gitter.im/MM-PITE/first_project](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MM-PITE/first_project?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 an Project for Python in the Enterprise class
 
 ##Documentation
